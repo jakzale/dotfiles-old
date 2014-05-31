@@ -1,53 +1,14 @@
-" Preventing automatic change of directory
-"let g:spf13_no_autochdir = 1
-
-" Choosing only a subset of packages
-let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'javascript', 'html', 'misc',]
-
-" Setting up the local leader
-let maplocalleader = ","
-
 " Vim support for clojure
 Bundle 'tpope/vim-fireplace'
-"Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/paredit.vim'
+
 " Plugin for rainbow parentheses
 Bundle 'amdt/vim-niji'
-
-" Multiple cursor support
-"Bundle 'terryma/vim-multiple-cursors'
-
-" Support for git log
-Bundle 'kablamo/vim-git-log'
-
-" Plugins for task management
-" Replaced by the task warrior
-Bundle 'aaronbieber/quicktask'
 
 "Latex Support
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
-"EBNF syntax support
-Bundle 'vim-scripts/ebnf.vim'
-
-" Bundle support
-"Bundle 'Floobits/floobits-vim'
-"
-"Ctlrp replacement, still do not know if usefull
-"Bundle 'Shougo/unite.vim'
-
-" Automatic background switching
-"Bundle 'Dinduks/vim-holylight'
-
-" Go lang support
-"Bundle 'fsouza/go.vim'
-
-" Adding fortran support
-"Bundle 'vim-scripts/fortran.vim'
-
-" Adding cl support
-"Bundle 'vim-scripts/slimv.vim'
 
 Bundle 'leafgarland/typescript-vim'
 

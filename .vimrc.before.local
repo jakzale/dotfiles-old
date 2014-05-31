@@ -1,1 +1,5 @@
-let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'javascript', 'html', 'misc',]
+" Using only a subset of provided packages
+let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'javascript', 'html', 'misc']
+
+" Setting up the local leader
+let maplocalleader = ","
