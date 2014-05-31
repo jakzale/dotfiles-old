@@ -3,32 +3,18 @@
 if has('gui_running')
     set guifont=Menlo\ Regular:h11
 endif
- augroup my_ruby
-     autocmd!
-     " Setting width of tabs for ruby at 2 spaces
-     autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-     " Same for coffescript
-     autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
-     " and haml and eruby
-     autocmd FileType haml setlocal shiftwidth=2 tabstop=2 softtabstop=2
-     autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
- augroup END
 
 
-" Ensuring the proper configuration for slimv
-let g:slimv_preffered = 'clozure'
-let g:slimv_impl = 'clozure'
-let g:slimv_lisp = '/usr/local/bin/ccl64'
-
-
-" Solarized terminal colors
-"let g:solarized_termcolors=16
-"color solarized
-
-
-" Removing that annoying binding on esc in insert mode
-"unmap <esc>[H
-"unmap <esc>[F
+augroup my_ruby
+    autocmd!
+    " Setting width of tabs for ruby at 2 spaces
+    autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    " Same for coffescript
+    autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    " and haml and eruby
+    autocmd FileType haml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
 
 " Simple mapping for faster leaving of insert mode
 "inoremap <esc> <nop>
@@ -37,24 +23,10 @@ inoremap jk <esc>
 " Removing spf13 autoclose
 UnBundle 'spf13/vim-autoclose'
 
-" Remove ctrp because it is faulty atm
-"UnBundle 'kien/ctrlp.vim'
-
 " Shortcuts for switching background
 nnoremap <Leader>bl :set background=light<CR>
 nnoremap <Leader>bd :set background=dark<CR>
 
-augroup my_quicktask
-    autocmd!
-    " Quicktask file support
-    autocmd BufNewFile,BufRead *.TODO  set filetype=quicktask
-augroup END
-
-augroup my_ipython
-    autocmd!
-    " iPython file support
-    autocmd BufNewFile,BufRead *.ipy set filetype=python
-augroup END
 
 
 augroup my_markdown
@@ -85,10 +57,6 @@ augroup END
 
 let g:LatexBox_viewer = "open"
 
-" Remapping git log for GitLog
-nnoremap <Leader>gl :GitLog<CR>
-
-
 " Haskell support
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
@@ -108,16 +76,7 @@ nnoremap <Leader>k :!grunt test-karma<CR>
 
 " Ignore Angularjs proprietary prefixes
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-" Unfortunately use jshint
-"let g:syntastic_javascript_checkers = ['jshint']
 
-
-" Adding additional autogroup for JavaScript
-"augroup my_javascript
-"    autocmd!
-"    autocmd FileType javascript set ts=2 sw=4 sts=2 et
-"augroup END
-"
 " Ensuring proper colors for the gui
 if has('gui_running')
     let g:js_context_colors = [7, 64, 136, 33, 160, 37, 125]
