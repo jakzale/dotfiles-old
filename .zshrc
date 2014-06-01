@@ -91,8 +91,6 @@ alias j=z
 export PATH=$PATH:"/Applications/Racket v5.92/bin/"
 
 # Amazon Web Services
-#export AWS_ACCESS_KEY_ID='AKIAJQS23TT54QYJGXKQ'
-#export AWS_SECRET_ACCESS_KEY='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'
 
 
 export CLASSPATH=".:/usr/local/Cellar/antlr/4.2/antlr-4.2-complete.jar:$CLASSPATH"
