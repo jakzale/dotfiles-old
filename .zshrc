@@ -66,32 +66,5 @@ export GL_ENABLE_DEBUG_ATTACH=YES
 source_silent `brew --prefix`/etc/profile.d/z.sh
 alias j=z
 
-#alias node="env NODE_NO_READLINE=1 rlwrap node"
-
-#export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
-#export PERL_MB_OPT="--install_base $HOME/perl5";
-#export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
-#export PERL5LIB="$HOME/perl5/lib/perl5/darwin-thread-multi-2level:$HOME/perl5/lib/perl5";
-#export PATH="/Users/jakub/perl5/bin:$PATH";
-
-# Setting up Google go
-#export GOPATH="$HOME/Developer/go-ext:$HOME/Developer/go"
-#export GOROOT="/usr/local/Cellar/go/1.1.2"
-#export PATH=$PATH:${GOPATH//://bin:}/bin
-
-# Marked completion
-#zstyle ':completion:*:*:mark' file-patterns \
-    #'*.(md|mdown|markdown):markdown' '*:all-files'
-
-# Guard start command
-#alias grd='guard start -i 1>> log/implementation.log 2>> log/guard.log'
-#alias grd='guard start 2>> log/guard.log'
-
 # Add racket to command line
 export PATH=$PATH:"/Applications/Racket v5.92/bin/"
-
-# Amazon Web Services
-
-
-export CLASSPATH=".:/usr/local/Cellar/antlr/4.2/antlr-4.2-complete.jar:$CLASSPATH"
-alias grun="java org.antlr.v4.runtime.misc.TestRig"
