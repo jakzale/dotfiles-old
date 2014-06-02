@@ -20,9 +20,6 @@ augroup END
 "inoremap <esc> <nop>
 inoremap jk <esc>
 
-" Removing spf13 autoclose
-UnBundle 'spf13/vim-autoclose'
-
 " Shortcuts for switching background
 nnoremap <Leader>bl :set background=light<CR>
 nnoremap <Leader>bd :set background=dark<CR>
@@ -81,3 +78,11 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 if has('gui_running')
     let g:js_context_colors = [7, 64, 136, 33, 160, 37, 125]
 endif
+
+" Context colouring for javascript
+augroup my_javascript
+    autocmd!
+    autocmd FileType javascript nnoremap <Leader>t :JSContextColorToggle<CR>
+augroup END
+
+
