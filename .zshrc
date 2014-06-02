@@ -29,11 +29,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# TODO: Clean this up a bit
-#plugins=(git brew osx rails3 ruby bundler gem taskwarrior autojump hg)
-#plugins=(git brew osx autojump)
-# Removing autojum - trying z for now.
-plugins=(git brew osx)
+plugins=(git brew osx taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
