@@ -60,7 +60,6 @@ export GL_ENABLE_DEBUG_ATTACH=YES
 
 # Loading the z command
 source_silent `brew --prefix`/etc/profile.d/z.sh
-alias j=z
 
 # Add racket to command line
 export PATH=$PATH:"/Applications/Racket v5.92/bin/"
