@@ -63,3 +63,6 @@ source_silent `brew --prefix`/etc/profile.d/z.sh
 
 # Add racket to command line
 export PATH=$PATH:"/Applications/Racket v5.92/bin/"
+
+# Set up node path
+export NODE_PATH="/usr/local/lib/node_modules/"

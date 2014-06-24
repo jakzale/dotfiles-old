@@ -1,3 +1,6 @@
+" This annoyed me for far too long
+UnBundle 'spf13/vim-autoclose'
+
 " Vim support for clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
