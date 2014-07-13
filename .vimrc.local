@@ -85,4 +85,7 @@ augroup my_javascript
     autocmd FileType javascript nnoremap <Leader>t :JSContextColorToggle<CR>
 augroup END
 
+" Disable context colouring globally -- too slow
+let g:js_context_colors_enabled = 0
+
 

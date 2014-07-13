@@ -23,3 +23,12 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 " Vim plugin for javascript context coloring
 Bundle 'bigfish/vim-js-context-coloring'
+
+" Bundle for pegjs syntax
+Bundle 'alunny/pegjs-vim'
+
+" Bundle for tern
+Bundle 'marijnh/tern_for_vim'
+
+" Bundle for TypeScript Tools
+Bundle 'clausreinke/typescript-tools'
