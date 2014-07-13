@@ -13,7 +13,6 @@ Bundle 'amdt/vim-niji'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 
-Bundle 'leafgarland/typescript-vim'
 
 " Adding support for jade
 Bundle 'digitaltoad/vim-jade'
@@ -30,5 +29,9 @@ Bundle 'alunny/pegjs-vim'
 " Bundle for tern
 Bundle 'marijnh/tern_for_vim'
 
-" Bundle for TypeScript Tools
+" Bundle for TypeScript
+Bundle 'leafgarland/typescript-vim'
 Bundle 'clausreinke/typescript-tools'
+
+" Asynchronous compilation in background
+Bundle 'tpope/vim-dispatch'
