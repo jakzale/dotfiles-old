@@ -1,22 +1,6 @@
-"Setting up the guifont
+" Set up the proper snippet author
+let g:snips_author = 'Jakub Z <jakzale@gmail.com>'
 
-if has('gui_running')
-    set guifont=Menlo\ Regular:h11
-endif
-
-
-augroup my_ruby
-    autocmd!
-    " Setting width of tabs for ruby at 2 spaces
-    autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    " Same for coffescript
-    autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    " and haml and eruby
-    autocmd FileType haml setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-augroup END
-
-" Simple mapping for faster leaving of insert mode
 "inoremap <esc> <nop>
 inoremap jk <esc>
 
@@ -67,9 +51,6 @@ augroup my_latex
             \ "%:p" <CR>:redraw!<CR>
     autocmd FileType tex set textwidth=79
 augroup END
-
-" Mapping <leader k> to start karma
-"nnoremap <Leader>k :!grunt test-karma<CR>
 
 " Ignore Angularjs proprietary prefixes
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
