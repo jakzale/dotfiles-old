@@ -35,3 +35,14 @@ Bundle 'clausreinke/typescript-tools'
 
 " Asynchronous compilation in background
 Bundle 'tpope/vim-dispatch'
+
+" Support for unicode
+Bundle 'chrisbra/unicode.vim'
+
+" Support for shell in vim
+Bundle "Shougo/vimshell.vim"
+Bundle "Shougo/vimproc.vim"
+
+" Distraction free writing
+Bundle "junegunn/goyo.vim"
+Bundle "junegunn/limelight.vim"
