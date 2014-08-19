@@ -1,47 +1,48 @@
 " This annoyed me for far too long
 UnBundle 'spf13/vim-autoclose'
 
+
 " Vim support for clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/paredit.vim'
 
+
 " Plugin for rainbow parentheses
 Bundle 'amdt/vim-niji'
+
 
 "Latex Support
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 
-
-" Adding support for jade
-Bundle 'digitaltoad/vim-jade'
-
 " Vim tmux navigator plugin
 Bundle 'christoomey/vim-tmux-navigator'
 
+
 " Vim plugin for javascript context coloring
-Bundle 'bigfish/vim-js-context-coloring'
-
-" Bundle for pegjs syntax
-Bundle 'alunny/pegjs-vim'
-
+" Bundle 'bigfish/vim-js-context-coloring'
 " Bundle for tern
-Bundle 'marijnh/tern_for_vim'
+" Bundle 'marijnh/tern_for_vim'
+
 
 " Bundle for TypeScript
 Bundle 'leafgarland/typescript-vim'
 Bundle 'clausreinke/typescript-tools'
 
+
 " Asynchronous compilation in background
 Bundle 'tpope/vim-dispatch'
+
 
 " Support for unicode
 Bundle 'chrisbra/unicode.vim'
 
+
 " Support for shell in vim
 Bundle "Shougo/vimshell.vim"
 Bundle "Shougo/vimproc.vim"
+
 
 " Distraction free writing
 Bundle "junegunn/goyo.vim"

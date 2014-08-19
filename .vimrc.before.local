@@ -1,3 +1,3 @@
 " Using only a subset of provided packages
-let g:spf13_bundle_groups=[]
+let g:spf13_bundle_groups=['general', 'programming']
 
