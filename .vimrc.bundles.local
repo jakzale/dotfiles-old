@@ -40,10 +40,22 @@ Bundle 'chrisbra/unicode.vim'
 
 
 " Support for shell in vim
-Bundle "Shougo/vimshell.vim"
-Bundle "Shougo/vimproc.vim"
+" Bundle "Shougo/vimshell.vim"
+" Bundle "Shougo/vimproc.vim"
 
 
 " Distraction free writing
 Bundle "junegunn/goyo.vim"
 Bundle "junegunn/limelight.vim"
+
+" Vinegar vim
+Bundle "tpope/vim-vinegar"
+Bundle "tpope/vim-scriptease"
+
+" Disable plugins that slow stuff down
+UnBundle 'nathanaelkane/vim-indent-guides'
+UnBundle  'majutsushi/tagbar'
+
+" Hdevtools is currently broken
+UnBundle 'bitc/vim-hdevtools'
+

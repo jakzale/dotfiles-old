@@ -1,17 +1,18 @@
 " Using only a subset of provided packages
-let g:spf13_bundle_groups = ['general', 'programming']
+let g:spf13_bundle_groups = ['general', 'programming', 'haskell']
 
 " Disable views (check this for now)
 let g:spf13_no_views = 1
 
 " Set the leader to space
-let g:spf13_leader = "\<Space>"
+" let g:spf13_leader = "\<Space>"
+let g:spf13_leader=","
 " Keep the local leader to same for now
-let g:spf13_localleader=g:spf13_leader
+let g:spf13_localleader = "_"
 
 " Disable spf13 WrapRelativeMotion
-let g:spf13_no_wrapRelMotion = 1
+" let g:spf13_no_wrapRelMotion = 1
 
 " I rarely use tabs
-let g:spf13_no_fastTabs = 1
+" let g:spf13_no_fastTabs = 1
 

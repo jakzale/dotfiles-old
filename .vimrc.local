@@ -106,8 +106,30 @@ autocmd User GoyoEnter call <SID>goyo_enter()
 autocmd User GoyoLeave call <SID>goyo_leave()
 
 let g:goyo_width = 100
-nnoremap <Leader><Space> :Goyo<CR>
+nnoremap <Leader>, :Goyo<CR>
 
 " Custom configuration for latexbox
 let g:LatexBox_quickfix=2
 let g:LatexBox_latexmk_async=1
+
+" Ensure that the background is set properly
+if filereadable(expand("~/.vimrc.background"))
+    source ~/.vimrc.background
+endif
+
+" Disable syntastic for Haskell -- too much hassle atm
+" let g:syntastic_mode_map = { "mode": "active",
+"             \ "active_filetypes": [],
+"             \ "passive_filetypes": ["haskell"] }
+
+" Change haskell checker to hlint only, the other ones are too severe
+let g:syntastic_haskell_checkers=['hlint']
+
+" Ensure that quick fix is always at the bottom (splits difficult to read)
+augroup my_quickfix
+    autocmd!
+    autocmd FileType qf wincmd J
+augroup END
+
+" Ensure that you do not redraw when not needed
+set lazyredraw

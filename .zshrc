@@ -34,8 +34,9 @@ plugins=(git brew osx taskwarrior)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:$HOME/.cabal/bin
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+# export PATH=$HOME/.cabal/bin:$PATH
 
 # Adding latex support
 export PATH=$PATH:/usr/texbin
@@ -62,7 +63,10 @@ export GL_ENABLE_DEBUG_ATTACH=YES
 source_silent `brew --prefix`/etc/profile.d/z.sh
 
 # Add racket to command line
-export PATH=$PATH:"/Applications/Racket v5.92/bin/"
+export PATH=$PATH:"/Applications/Racket v6.1/bin/"
 
 # Set up node path
 export NODE_PATH="/usr/local/lib/node_modules/"
+
+# OPAM configuration
+. /Users/jakub/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
