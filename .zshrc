@@ -7,10 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -31,42 +27,52 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew osx taskwarrior)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-# export PATH=$HOME/.cabal/bin:$PATH
+# Setting up globals
 
-# Adding latex support
-export PATH=$PATH:/usr/texbin
+## Setting up the editor variable
+export EDITOR="vim"
 
-# Hack to silently load script
-function source_silent() {
-    [[ -s $1 ]] && source $1
-    # TODO: Add logging logic here
-}
-
-# Loading virtualenvwrapper
-source_silent /usr/local/bin/virtualenvwrapper.sh
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source_silent $HOME/.rvm/scripts/rvm
-
-# Setting up the editor variable
-export EDITOR=vim
-
-# Setting up the OpenGL profiler
+## Setting up the OpenGL profiler
 export GL_ENABLE_DEBUG_ATTACH=YES
 
-# Loading the z command
-source_silent `brew --prefix`/etc/profile.d/z.sh
-
-# Add racket to command line
-export PATH=$PATH:"/Applications/Racket v6.1/bin/"
-
-# Set up node path
+## Set up node path
 export NODE_PATH="/usr/local/lib/node_modules/"
 
-# OPAM configuration
-. /Users/jakub/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# Helper functions
+## Hack to silently load script
+function source_silent() {
+    [[ -s $1 ]] && source $1
+}
+
+## Helper function for handling PATH
+function pathify() {
+    export PATH=$1
+}
+
+# Setting up PATH
+## Base PATH, local first
+pathify "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+
+## Use Haskell, added first to use updated cabal
+pathify "$HOME/Library/Haskell/bin:$PATH"
+
+## Use Racket command line
+pathify "$PATH:/Applications/Racket v6.1/bin/"
+
+
+# Loading Scripts
+## Load virtualenvwrapper
+source_silent "/usr/local/bin/virtualenvwrapper.sh"
+
+## Load RVM
+source_silent "$HOME/.rvm/scripts/rvm"
+
+## Load Z
+source_silent "`brew --prefix`/etc/profile.d/z.sh"
+
+## Load OPAM
+source_silent "/Users/jakub/.opam/opam-init/init.zsh"
+
+
