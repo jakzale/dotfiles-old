@@ -48,4 +48,9 @@ NeoBundleCheck
 inoremap jk <esc>
 
 " Some binding for fugitive
-nnoremap <leader>gs :Gstatus<CR> 
+nnoremap <leader>gs :Gstatus<CR>
+
+" Ensure that the background is set properly
+if filereadable(expand("~/.vimrc.background"))
+    source ~/.vimrc.background
+endif
