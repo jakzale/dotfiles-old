@@ -43,6 +43,16 @@ NeoBundle 'sheerun/vim-polyglot'
 " Signify changes with vcs
 NeoBundle 'mhinz/vim-signify'
 
+" Add vimproc
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
 call neobundle#end()
 
 " Set that just to be safe
