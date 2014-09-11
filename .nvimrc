@@ -3,6 +3,9 @@
 
 " NeoBundle configuration from the README.md
 
+" Setting up the leader and localleader
+let mapleader = "\<Space>"
+
 if has('vim_starting')
   set runtimepath+=~/.nvim/bundle/neobundle.vim/
 endif
@@ -14,6 +17,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Plugins go here
 NeoBundle 'tpope/vim-sensible'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
@@ -28,3 +32,6 @@ NeoBundleCheck
 
 " jk is esc, always
 inoremap jk <esc>
+
+" Some binding for fugitive
+nnoremap <leader>gs :Gstatus<CR> 
