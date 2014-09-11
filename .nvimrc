@@ -14,6 +14,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Plugins go here
 NeoBundle 'tpope/vim-sensible'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
 
