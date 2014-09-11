@@ -1,11 +1,15 @@
-" Basic NeoVim configuration file
-" For now let's try to use pathogen
+" vim: tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
 
-" NeoBundle configuration from the README.md
+" Basic Vim Configuration File
+" Initially done for NeoVim
 
+
+" Leaders {
 " Setting up the leader and localleader
 let mapleader = "\<Space>"
+" }
 
+" NeoBundle setup {
 if has('vim_starting')
   set runtimepath+=~/.nvim/bundle/neobundle.vim/
 endif
@@ -14,8 +18,9 @@ endif
 call neobundle#begin(expand('~/.nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+" }
 
-" Plugins go here
+" Plugins {
 "  A list of plugins by tpope
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-fugitive'
@@ -59,6 +64,9 @@ NeoBundle 'eagletmt/neco-ghc'
 " NeoComplCache
 NeoBundle "Shougo/neocomplcache.vim"
 
+" }
+
+" NeoBundle End {
 call neobundle#end()
 
 " Set that just to be safe
@@ -67,8 +75,9 @@ filetype plugin indent on
 " Check for uninstalled bundles
 NeoBundleCheck
 
-" Normal config goes here
+" }
 
+" Configuration {
 " jk is esc, always
 inoremap jk <esc>
 
@@ -112,3 +121,5 @@ let g:neocomplcache_enable_at_startup = 1
 
 " Set minimun syntax length
 let g:neocomplcache_min_syntax_length = 3
+
+" }
