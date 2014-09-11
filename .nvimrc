@@ -50,7 +50,9 @@
   " Signify changes with vcs
   NeoBundle 'mhinz/vim-signify'
 
-  " Add vimproc
+  " Plugins By Shougo
+  NeoBundle 'Shougo/neocomplcache.vim'
+  NeoBundle 'Shougo/unite.vim'
   NeoBundle 'Shougo/vimproc.vim', {
         \ 'build' : {
         \     'windows' : 'tools\\update-dll-mingw',
@@ -63,8 +65,6 @@
   " Add neco-ghc
   NeoBundle 'eagletmt/neco-ghc'
 
-  " NeoComplCache
-  NeoBundle "Shougo/neocomplcache.vim"
 
 " }
 
