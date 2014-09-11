@@ -40,6 +40,9 @@ NeoBundle 'altercation/vim-colors-solarized'
 " Deal with syntax files once and for all
 NeoBundle 'sheerun/vim-polyglot'
 
+" Signify changes with vcs
+NeoBundle 'mhinz/vim-signify'
+
 call neobundle#end()
 
 " Set that just to be safe
