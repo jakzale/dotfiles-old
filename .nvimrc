@@ -34,6 +34,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
 
+" Solarized color scheme
+NeoBundle 'altercation/vim-colors-solarized'
 call neobundle#end()
 
 " Set that just to be safe
@@ -54,3 +56,29 @@ nnoremap <leader>gs :Gstatus<CR>
 if filereadable(expand("~/.vimrc.background"))
     source ~/.vimrc.background
 endif
+" Setting up NVim UI
+" Fixing the colorscheme
+function! s:fix_color_scheme()
+  highlight clear SignColumn
+  highlight clear LineNr
+
+  " Fixing the color of the omnicomplete window
+  hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+  hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+  hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+endfunction
+
+augroup FixingColorScheme
+  autocmd!
+  autocmd ColorScheme * call <SID>fix_color_scheme()
+augroup END
+
+" Setting up solarized color scheme"
+if filereadable(expand("~/.nvim/bundle/vim-colors-solarized/colors/solarized.vim"))
+  let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  let g:solarized_contrast="normal"
+  let g:solarized_visibility="normal"
+  color solarized
+endif
+
