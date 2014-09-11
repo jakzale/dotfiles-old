@@ -64,7 +64,7 @@ pathify "$PATH:/Applications/Racket v6.1/bin/"
 
 # Loading Scripts
 ## Load virtualenvwrapper
-source_silent "/usr/local/bin/virtualenvwrapper.sh"
+# source_silent "/usr/local/bin/virtualenvwrapper.sh"
 
 ## Load RVM
 source_silent "$HOME/.rvm/scripts/rvm"

@@ -1,5 +1,5 @@
 " Using only a subset of provided packages
-let g:spf13_bundle_groups = ['general', 'programming', 'haskell']
+let g:spf13_bundle_groups = ['general', 'programming', 'youcompleteme', 'javascript', 'haskell']
 
 " Disable views (check this for now)
 let g:spf13_no_views = 1

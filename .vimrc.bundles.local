@@ -48,9 +48,10 @@ Bundle 'chrisbra/unicode.vim'
 Bundle "junegunn/goyo.vim"
 Bundle "junegunn/limelight.vim"
 
-" Vinegar vim
+" Tim Pope's plugins
 Bundle "tpope/vim-vinegar"
 Bundle "tpope/vim-scriptease"
+Bundle 'tpope/vim-markdown'
 
 " Disable plugins that slow stuff down
 UnBundle 'nathanaelkane/vim-indent-guides'
