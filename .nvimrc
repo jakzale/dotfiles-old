@@ -1,13 +1,18 @@
-" vim: tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
+" vim: tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Basic Vim Configuration File
 " Initially done for NeoVim
+" A lot is shamelessly taken from Steve Francia's Spf13-Vim
 
+" Initial Setup {
+  " Leaders {
+    " Setting up the leader and localleader
+    let mapleader = "\<Space>"
+  " }
 
-" Leaders {
-  " Setting up the leader and localleader
-  let mapleader = "\<Space>"
-
+  " Putting configuration here as some plugins depend on it
+  set ignorecase
+  set smartcase
 " }
 
 " NeoBundle setup {
@@ -19,7 +24,6 @@
   call neobundle#begin(expand('~/.nvim/bundle'))
 
   NeoBundleFetch 'Shougo/neobundle.vim'
-
 " }
 
 " Plugins {
@@ -64,8 +68,6 @@
 
   " Add neco-ghc
   NeoBundle 'eagletmt/neco-ghc'
-
-
 " }
 
 " NeoBundle End {
@@ -86,36 +88,103 @@
   " Some binding for fugitive
   nnoremap <leader>gs :Gstatus<CR>
 
-  " Ensure that the background is set properly
-  if filereadable(expand("~/.vimrc.background"))
-    source ~/.vimrc.background
-  endif
+  " General {
+    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+    set virtualedit=onemore             " Allow for cursor beyond last character
+    set history=1000                    " Store a ton of history (default is 20)
+    set spell                           " Spell checking on
+    set hidden                          " Allow buffer switching without saving
+    set iskeyword-=.                    " '.' is an end of word designator
+    set iskeyword-=#                    " '#' is an end of word designator
+    set iskeyword-=-                    " '-' is an end of word designator
 
-  " Setting up NVim UI
-  " Fixing the colorscheme
-  function! s:fix_color_scheme()
-    highlight clear SignColumn
-    highlight clear LineNr
+    " Instead of reverting the cursor to the last position in the buffer, we
+    " set it to the first line when editing a git commit message
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-    " Fixing the color of the omnicomplete window
-    hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
-    hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-    hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-  endfunction
+    " Setting up the directories {
+    set backup
+    if has('persistent_undo')
+      set undofile
+      set undolevels=1000
+      set undoreload=10000
+    endif
+    " }
+  " }
 
-  augroup FixingColorScheme
-    autocmd!
-    autocmd ColorScheme * call <SID>fix_color_scheme()
-  augroup END
+  " Setting up NVim UI {
+    " Ensure that the background is set properly
+    if filereadable(expand("~/.vimrc.background"))
+      source ~/.vimrc.background
+    endif
 
-  " Setting up solarized color scheme"
-  if filereadable(expand("~/.nvim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    color solarized
-  endif
+    " Fixing the colorscheme {
+      function! s:fix_color_scheme()
+        highlight clear SignColumn
+        highlight clear LineNr
+
+        " Fixing the color of the omnicomplete window
+        hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+        hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+        hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+      endfunction
+
+      augroup FixingColorScheme
+        autocmd!
+        autocmd ColorScheme * call <SID>fix_color_scheme()
+      augroup END
+    " }
+    " Setting up solarized color scheme" {
+      if filereadable(expand("~/.nvim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="normal"
+        color solarized
+      endif
+    " }
+
+    set tabpagemax=15
+    set cursorline
+
+    if has('cmdline_info')
+        set ruler                   " Show the ruler
+        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+        set showcmd                 " Show partial commands in status line and
+                                    " Selected characters/lines in visual mode
+    endif
+
+    if has('statusline')
+        set laststatus=2
+
+        " Broken down into easily includeable segments
+        set statusline=%<%f\                     " Filename
+        set statusline+=%w%h%m%r                 " Options
+        set statusline+=%{fugitive#statusline()} " Git Hotness
+        set statusline+=\ [%{&ff}/%Y]            " Filetype
+        set statusline+=\ [%{getcwd()}]          " Current dir
+        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    endif
+
+    set backspace=indent,eol,start  " Backspace for dummies
+    set linespace=0                 " No extra spaces between rows
+    set nu                          " Line numbers on
+    set showmatch                   " Show matching brackets/parenthesis
+    set incsearch                   " Find as you type search
+    set hlsearch                    " Highlight search terms
+    set winminheight=0              " Windows can be 0 line high
+    set ignorecase                  " Case insensitive search
+    set smartcase                   " Case sensitive when uc present
+    set wildmenu                    " Show list instead of just completing
+    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+    set scrolljump=5                " Lines to scroll when cursor leaves screen
+    set scrolloff=3                 " Minimum lines to keep above and below cursor
+    set foldenable                  " Auto fold code
+    set list
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+  " }
 
   " Enable NeoComplCache
   let g:acp_enableAtStartup = 0
