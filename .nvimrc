@@ -25,3 +25,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 " Normal config goes here
+
+" jk is esc, always
+inoremap jk <esc>
