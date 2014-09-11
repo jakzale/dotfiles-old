@@ -12,6 +12,9 @@ call neobundle#begin(expand('~/.nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" Plugins go here
+NeoBundle 'tpope/vim-sensible'
+
 call neobundle#end()
 
 " Set that just to be safe
