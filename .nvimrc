@@ -36,6 +36,10 @@ NeoBundle 'bling/vim-bufferline'
 
 " Solarized color scheme
 NeoBundle 'altercation/vim-colors-solarized'
+
+" Deal with syntax files once and for all
+NeoBundle 'sheerun/vim-polyglot'
+
 call neobundle#end()
 
 " Set that just to be safe
