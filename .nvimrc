@@ -16,8 +16,18 @@ call neobundle#begin(expand('~/.nvim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Plugins go here
+"  A list of plugins by tpope
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'tpope/vim-scriptease'
+NeoBundle 'tpope/vim-sleuth'
+
+" Vim TMUX navigator
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
