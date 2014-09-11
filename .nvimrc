@@ -54,8 +54,9 @@ nnoremap <leader>gs :Gstatus<CR>
 
 " Ensure that the background is set properly
 if filereadable(expand("~/.vimrc.background"))
-    source ~/.vimrc.background
+  source ~/.vimrc.background
 endif
+
 " Setting up NVim UI
 " Fixing the colorscheme
 function! s:fix_color_scheme()
