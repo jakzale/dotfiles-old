@@ -53,6 +53,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+" Add neco-ghc
+NeoBundle 'eagletmt/neco-ghc'
+
 call neobundle#end()
 
 " Set that just to be safe
