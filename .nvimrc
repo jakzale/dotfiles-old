@@ -30,6 +30,10 @@ NeoBundle 'tpope/vim-sleuth'
 " Vim TMUX navigator
 NeoBundle 'christoomey/vim-tmux-navigator'
 
+" Vim Airline and Vim Bufferline
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-bufferline'
+
 call neobundle#end()
 
 " Set that just to be safe
