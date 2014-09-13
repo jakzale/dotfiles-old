@@ -38,6 +38,7 @@
   NeoBundle 'tpope/vim-vinegar'
   NeoBundle 'tpope/vim-scriptease'
   NeoBundle 'tpope/vim-sleuth'
+  NeoBundle 'tpope/vim-markdown'
 
   " Vim TMUX navigator
   NeoBundle 'christoomey/vim-tmux-navigator'
@@ -79,6 +80,15 @@
 
   " UndoTree
   NeoBundle 'mbbill/undotree'
+
+  " Tabular
+  NeoBundle 'godlygeek/tabular'
+
+  " Latex Support
+  NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+
+  " Syntastic
+  NeoBundle 'scrooloose/syntastic'
 " }
 
 " NeoBundle End {
@@ -111,6 +121,7 @@
   " http://stackoverflow.com/a/8064607/127816
   vnoremap . :normal .<CR>
 " }
+
 
 " General {
   set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
@@ -256,6 +267,9 @@
       let g:airline_left_sep=''
       let g:airline_right_sep=''
     endif
+  " }
+  " Syntastic {
+    let g:syntastic_haskell_checkers=['hlint']
   " }
 " }
 
