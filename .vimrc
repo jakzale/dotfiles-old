@@ -99,7 +99,7 @@
   noremap k gk
 
   " Turn of the highlight for the search
-  nmap <silent> <leader>/ :nohlsearch<CR>
+  nmap <silent> <leader>/ :set invhlsearch<CR>
 
   " Some binding for fugitive
   nnoremap <leader>gs :Gstatus<CR>
