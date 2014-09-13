@@ -89,7 +89,7 @@
 
 " }
 
-" Key Maps {
+" Global Key Maps {
 
   " jk is esc, always
   inoremap jk <esc>
@@ -100,6 +100,13 @@
 
   " Turn of the highlight for the search
   nmap <silent> <leader>/ :set invhlsearch<CR>
+
+  " Find merge conflict markers
+  map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+  " Allow using the repeat operator with a visual selection (!)
+  " http://stackoverflow.com/a/8064607/127816
+  vnoremap . :normal .<CR>
 
   " Some binding for fugitive
   nnoremap <leader>gs :Gstatus<CR>
