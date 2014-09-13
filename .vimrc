@@ -90,11 +90,20 @@
 " }
 
 " Key Maps {
+
   " jk is esc, always
   inoremap jk <esc>
 
+  " Wrapped lines goes down/up to next row, rather than next line in file.
+  noremap j gj
+  noremap k gk
+
+  " Turn of the highlight for the search
+  nmap <silent> <leader>/ :nohlsearch<CR>
+
   " Some binding for fugitive
   nnoremap <leader>gs :Gstatus<CR>
+
 " }
 
 " General {
