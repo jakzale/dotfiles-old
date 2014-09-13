@@ -59,7 +59,7 @@ pathify "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
 pathify "$HOME/Library/Haskell/bin:$PATH"
 
 ## Use Racket command line
-pathify "$PATH:/Applications/Racket v6.1/bin/"
+pathify "$PATH:/Applications/Racket v6.1/bin"
 
 
 # Loading Scripts
