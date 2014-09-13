@@ -247,4 +247,80 @@
       let g:undotree_SetFocusWhenToggle=1
     endif
   " }
+  " vim-airine {
+    if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+      if !exists('g:airline_theme')
+        let g:airline_theme = 'solarized'
+      endif
+      " Use the default set of separators with a few customizations
+      let g:airline_left_sep=''
+      let g:airline_right_sep=''
+    endif
+  " }
+" }
+
+
+" GUI Settings {
+  " GVIM- (here instead of .gvimrc)
+  if has('gui_running')
+    set guioptions-=T           " Remove the toolbar
+    set lines=40                " 40 lines of text instead of 24
+    if !exists("g:spf13_no_big_font")
+      if LINUX() && has("gui_running")
+        set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+      elseif OSX() && has("gui_running")
+        set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+      elseif WINDOWS() && has("gui_running")
+        set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+      endif
+    endif
+  else
+    if &term == 'xterm' || &term == 'screen'
+      set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    endif
+    "set term=builtin_ansi       " Make arrow and other keys work
+  endif
+" }
+
+" Initialize directories {
+  function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'vim'
+    let dir_list = {
+          \ 'backup': 'backupdir',
+          \ 'views': 'viewdir',
+          \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+      let dir_list['undo'] = 'undodir'
+    endif
+
+    " To specify a different directory in which to place the vimbackup,
+    " vimviews, vimundo, and vimswap files/directories, add the following to
+    " your .vimrc.before.local file:
+    "   let g:spf13_consolidated_directory = <full path to desired directory>
+    "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
+    if exists('g:spf13_consolidated_directory')
+      let common_dir = g:spf13_consolidated_directory . prefix
+    else
+      let common_dir = parent . '/.' . prefix
+    endif
+
+    for [dirname, settingname] in items(dir_list)
+      let directory = common_dir . dirname . '/'
+      if exists("*mkdir")
+        if !isdirectory(directory)
+          call mkdir(directory)
+        endif
+      endif
+      if !isdirectory(directory)
+        echo "Warning: Unable to create backup directory: " . directory
+        echo "Try: mkdir -p " . directory
+      else
+        let directory = substitute(directory, " ", "\\\\ ", "g")
+        exec "set " . settingname . "=" . directory
+      endif
+    endfor
+  endfunction
+  call InitializeDirectories()
 " }
