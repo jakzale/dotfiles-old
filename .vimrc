@@ -219,3 +219,33 @@
   set pastetoggle=<F12>
 " }
 
+" Plugins Configuration {
+  " Fugitive {
+    if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+      nnoremap <silent> <leader>gs :Gstatus<CR>
+      nnoremap <silent> <leader>gd :Gdiff<CR>
+      nnoremap <silent> <leader>gc :Gcommit<CR>
+      nnoremap <silent> <leader>gb :Gblame<CR>
+      nnoremap <silent> <leader>gl :Glog<CR>
+      nnoremap <silent> <leader>gp :Git push<CR>
+      nnoremap <silent> <leader>gr :Gread<CR>
+      nnoremap <silent> <leader>gw :Gwrite<CR>
+      nnoremap <silent> <leader>ge :Gedit<CR>
+      " Mnemonic _i_nteractive
+      nnoremap <silent> <leader>gi :Git add -p %<CR>
+      nnoremap <silent> <leader>gg :SignifyToggle<CR>
+    endif
+  " }
+  " YouCompleteMe {
+    let g:acp_enableAtStartup = 0
+
+    let g:ycm_semantic_triggers = {'haskell' : ['.']}
+  " }
+  " UndoTree {
+    if isdirectory(expand("~/.vim/bundle/undotree/"))
+      nnoremap <Leader>u :UndotreeToggle<CR>
+      " If undotree is opened, it is likely one wants to interact with it.
+      let g:undotree_SetFocusWhenToggle=1
+    endif
+  " }
+" }
