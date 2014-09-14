@@ -117,6 +117,10 @@
   " Find merge conflict markers
   map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
+  " Visual shifting (does not exit Visual mode)
+  vnoremap < <gv
+  vnoremap > >gv
+
   " Allow using the repeat operator with a visual selection (!)
   " http://stackoverflow.com/a/8064607/127816
   vnoremap . :normal .<CR>
@@ -249,6 +253,9 @@
   " YouCompleteMe {
     let g:acp_enableAtStartup = 0
 
+    " Use proper completion function for haskell
+
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     let g:ycm_semantic_triggers = {'haskell' : ['.']}
   " }
   " UndoTree {
