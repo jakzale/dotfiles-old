@@ -8,6 +8,7 @@
   " Leaders {
     " Setting up the leader and localleader
     let mapleader = "\<Space>"
+    let maplocalleader = "_"
   " }
 
   " Putting configuration here as some plugins depend on it
@@ -86,6 +87,10 @@
 
   " Latex Support
   NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+
+  " Goyo and Limelight
+  NeoBundle 'junegunn/goyo.vim'
+  NeoBundle 'junegunn/limelight.vim'
 
   " Syntastic
   NeoBundle 'scrooloose/syntastic'
@@ -278,6 +283,44 @@
   " Syntastic {
     let g:syntastic_haskell_checkers=['hlint']
   " }
+  " Latex-Box {
+  let g:LatexBox_viewer = "open"
+  augroup my_latex
+    autocmd!
+    autocmd FileType tex nnoremap <silent> <LocalLeader>ls :silent
+          \ !/Applications/Skim.app/Contents/SharedSupport/displayline
+          \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
+          \ "%:p" <CR>:redraw!<CR>
+    autocmd FileType tex set textwidth=79
+  augroup END
+  " }
+  " Goyo and Limelight {
+
+  " Setting up default limelight
+  let g:limelight_conceal_ctermfg = 'Grey'
+  let g:limelight_conceal_guifg = 'DarkGrey'
+  let g:limelight_default_coefficient = 0.7
+
+  " Setting up the distraction free writing
+  function! s:goyo_enter()
+    " Go to the beginning of the line --- prevents usually shifted screen
+    normal ^
+    Limelight
+  endfunction
+
+  function! s:goyo_leave()
+    Limelight!
+  endfunction
+
+  autocmd! User GoyoEnter
+  autocmd! User GoyoLeave
+
+  autocmd User GoyoEnter call <SID>goyo_enter()
+  autocmd User GoyoLeave call <SID>goyo_leave()
+
+  let g:goyo_width = 100
+  nnoremap <Leader>, :Goyo<CR>
+  " }
 " }
 
 
@@ -287,12 +330,8 @@
     set guioptions-=T           " Remove the toolbar
     set lines=40                " 40 lines of text instead of 24
     if !exists("g:spf13_no_big_font")
-      if LINUX() && has("gui_running")
-        set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
-      elseif OSX() && has("gui_running")
+      if has("gui_running")
         set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
-      elseif WINDOWS() && has("gui_running")
-        set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
       endif
     endif
   else
