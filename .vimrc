@@ -1,22 +1,22 @@
-" vim: tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
 
 " Basic Vim Configuration File
 " Initially done for NeoVim
 " A lot is shamelessly taken from Steve Francia's Spf13-Vim
 
-" Initial Setup {
-  " Leaders {
+" Initial Setup {{{
+  " Leaders {{{
     " Setting up the leader and localleader
     let mapleader = "\<Space>"
     let maplocalleader = "_"
-  " }
+  " }}}
 
   " Putting configuration here as some plugins depend on it
   set ignorecase
   set smartcase
-" }
+" }}}
 
-" NeoBundle setup {
+" NeoBundle setup {{{
   if has('vim_starting')
     set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -26,9 +26,9 @@
   call neobundle#begin(expand('~/.vim/bundle'))
 
   NeoBundleFetch 'Shougo/neobundle.vim'
-" }
+" }}}
 
-" Plugins {
+" Plugins {{{
   "  A list of plugins by tpope
   NeoBundle 'tpope/vim-sensible'
   NeoBundle 'tpope/vim-fugitive'
@@ -40,6 +40,7 @@
   NeoBundle 'tpope/vim-scriptease'
   NeoBundle 'tpope/vim-sleuth'
   NeoBundle 'tpope/vim-markdown'
+  NeoBundle 'gkz/vim-ls'
 
   " Vim TMUX navigator
   NeoBundle 'christoomey/vim-tmux-navigator'
@@ -53,6 +54,9 @@
 
   " Deal with syntax files once and for all
   NeoBundle 'sheerun/vim-polyglot'
+
+  " Racket support
+  NeoBundle 'wlangstroth/vim-racket'
 
   " Signify changes with vcs
   NeoBundle 'mhinz/vim-signify'
@@ -69,8 +73,12 @@
         \    },
         \ }
 
+  " Unite quickfix source
+  NeoBundle 'osyo-manga/unite-quickfix'
+
   " Add neco-ghc
   NeoBundle 'eagletmt/neco-ghc'
+  NeoBundle 'eagletmt/ghcmod-vim'
 
   " YouCompleteMe
   NeoBundle 'Valloric/YouCompleteMe', {
@@ -94,9 +102,12 @@
 
   " Syntastic
   NeoBundle 'scrooloose/syntastic'
-" }
 
-" NeoBundle End {
+  " Adding support for unicode
+  NeoBundle 'chrisbra/unicode.vim'
+" }}}
+
+" NeoBundle End {{{
   call neobundle#end()
 
   " Set that just to be safe
@@ -105,9 +116,9 @@
   " Check for uninstalled bundles
   NeoBundleCheck
 
-" }
+" }}}
 
-" Global Key Maps {
+" Global Key Maps {{{
 
   " jk is esc, always
   inoremap jk <esc>
@@ -129,10 +140,10 @@
   " Allow using the repeat operator with a visual selection (!)
   " http://stackoverflow.com/a/8064607/127816
   vnoremap . :normal .<CR>
-" }
+" }}}
 
 
-" General {
+" General {{{
   set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
   set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
   set virtualedit=onemore             " Allow for cursor beyond last character
@@ -147,23 +158,23 @@
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-  " Setting up the directories {
+  " Setting up the directories {{{
   set backup
   if has('persistent_undo')
     set undofile
     set undolevels=1000
     set undoreload=10000
   endif
-  " }
-" }
+  " }}}
+" }}}
 
-" Setting up Vim UI {
+" Setting up Vim UI {{{
   " Ensure that the background is set properly
   if filereadable(expand("~/.vimrc.background"))
     source ~/.vimrc.background
   endif
 
-  " Fixing the colorscheme {
+  " Fixing the colorscheme {{{
     function! s:fix_color_scheme()
       highlight clear SignColumn
       highlight clear LineNr
@@ -178,8 +189,8 @@
       autocmd!
       autocmd ColorScheme * call <SID>fix_color_scheme()
     augroup END
-  " }
-  " Setting up solarized color scheme" {
+  " }}}
+  " Setting up solarized color scheme" {{{
     if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
       let g:solarized_termcolors=256
       let g:solarized_termtrans=1
@@ -187,7 +198,7 @@
       let g:solarized_visibility="normal"
       color solarized
     endif
-  " }
+  " }}}
 
   set tabpagemax=15
   set cursorline
@@ -228,18 +239,18 @@
   set foldenable                  " Auto fold code
   set list
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-" }
+" }}}
 
-" Displaying Text {
+" Displaying Text {{{
   set nowrap
   set nojoinspaces
   set splitright
   set splitbelow
   set pastetoggle=<F12>
-" }
+" }}}
 
-" Plugins Configuration {
-  " Fugitive {
+" Configuration {{{
+  " Fugitive {{{
     if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
       nnoremap <silent> <leader>gs :Gstatus<CR>
       nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -254,23 +265,23 @@
       nnoremap <silent> <leader>gi :Git add -p %<CR>
       nnoremap <silent> <leader>gg :SignifyToggle<CR>
     endif
-  " }
-  " YouCompleteMe {
+  " }}}
+  " YouCompleteMe {{{
     let g:acp_enableAtStartup = 0
 
     " Use proper completion function for haskell
 
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     let g:ycm_semantic_triggers = {'haskell' : ['.']}
-  " }
-  " UndoTree {
+  " }}}
+  " UndoTree {{{
     if isdirectory(expand("~/.vim/bundle/undotree/"))
       nnoremap <Leader>u :UndotreeToggle<CR>
       " If undotree is opened, it is likely one wants to interact with it.
       let g:undotree_SetFocusWhenToggle=1
     endif
-  " }
-  " vim-airine {
+  " }}}
+  " vim-airine {{{
     if isdirectory(expand("~/.vim/bundle/vim-airline/"))
       if !exists('g:airline_theme')
         let g:airline_theme = 'solarized'
@@ -279,11 +290,11 @@
       let g:airline_left_sep=''
       let g:airline_right_sep=''
     endif
-  " }
-  " Syntastic {
-    let g:syntastic_haskell_checkers=['hlint']
-  " }
-  " Latex-Box {
+  " }}}
+  " Syntastic {{{
+    let g:syntastic_haskell_checkers=[]
+  " }}}
+  " Latex-Box {{{
   let g:LatexBox_viewer = "open"
   augroup my_latex
     autocmd!
@@ -293,8 +304,8 @@
           \ "%:p" <CR>:redraw!<CR>
     autocmd FileType tex set textwidth=79
   augroup END
-  " }
-  " Goyo and Limelight {
+  " }}}
+  " Goyo and Limelight {{{
 
   " Setting up default limelight
   let g:limelight_conceal_ctermfg = 'Grey'
@@ -320,11 +331,59 @@
 
   let g:goyo_width = 100
   nnoremap <Leader>, :Goyo<CR>
-  " }
-" }
+  " }}}
+  " ghcmod.vim {{{
+    let g:ghcmod_open_quickfix_function = 'GhcModQuickFix'
+
+    function! GhcModQuickFix()
+      :Unite -no-empty -no-quit -direction=botright quickfix -wrap
+    endfunction
+
+    
+    function! GhcModBufWritePost()
+      if !exists("b:ghcmod_disable") && !exists("g:ghcmod_disable")
+
+        if exists("b:ghcmod_lint_only") || exists("g:ghcmod_lint_only")
+          :GhcModLint
+        else
+          :GhcModCheckAndLintAsync
+        endif
+      endif
+    endfunction
+
+    " Automatically check haskell files
+    autocmd BufWritePost *.hs call GhcModBufWritePost()
+  " }}}
+
+  " Markdown {{{
+  augroup markdown
+    autocmd!
+    " Adding support for Marked.app
+    autocmd FileType markdown :nnoremap <Leader>m :silent !open -a Marked\ 2 '%:p'<CR>:redraw!<CR>
+    " autocmd FileType markdown set wrap linebreak nolist
+    autocmd FileType markdown set wrap linebreak
+
+    " Add additional row below the row -- still not shure how to solve this
+    " one
+    " autocmd FileType markdown :nnoremap <Leader>h yypVr-<CR>
+    " autocmd FileType markdown :nnoremap <Leader>H yypVr=<CR>
+
+    " Adding shortcuts for underlying
+    if has("gui_running")
+      autocmd FileType markdown let &showbreak='↳'
+    else
+      autocmd FileType markdown let &showbreak='↳ '
+    endif
+augroup END
 
 
-" GUI Settings {
+  " }}}
+
+
+" }}}
+
+
+" GUI Settings {{{
   " GVIM- (here instead of .gvimrc)
   if has('gui_running')
     set guioptions-=T           " Remove the toolbar
@@ -340,9 +399,9 @@
     endif
     "set term=builtin_ansi       " Make arrow and other keys work
   endif
-" }
+" }}}
 
-" Initialize directories {
+" Initialize directories {{{
   function! InitializeDirectories()
     let parent = $HOME
     let prefix = 'vim'
@@ -383,4 +442,4 @@
     endfor
   endfunction
   call InitializeDirectories()
-" }
+" }}}
