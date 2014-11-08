@@ -105,6 +105,9 @@
 
   " Adding support for unicode
   NeoBundle 'chrisbra/unicode.vim'
+
+  " Y U NO COMMIT plugin
+  NeoBundle 'esneider/YUNOcommit.vim'
 " }}}
 
 " NeoBundle End {{{
