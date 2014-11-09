@@ -63,6 +63,9 @@ pathify "$PATH:/Applications/Racket v6.1/bin"
 
 
 # Loading Scripts
+## Load BOXEN
+source_silent "/opt/boxen/env.sh"
+
 ## Load virtualenvwrapper
 # source_silent "/usr/local/bin/virtualenvwrapper.sh"
 
@@ -74,5 +77,4 @@ source_silent "`brew --prefix`/etc/profile.d/z.sh"
 
 ## Load OPAM
 source_silent "/Users/jakub/.opam/opam-init/init.zsh"
-
 
