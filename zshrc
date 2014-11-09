@@ -53,28 +53,28 @@ function pathify() {
 
 # Setting up PATH
 ## Base PATH, local first
-pathify "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+# pathify "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+
+## Load BOXEN
+source_silent "/opt/boxen/env.sh"
 
 ## Use Haskell, added first to use updated cabal
-pathify "$HOME/Library/Haskell/bin:$PATH"
+# pathify "$HOME/Library/Haskell/bin:$PATH"
 
 ## Use Racket command line
 pathify "$PATH:/Applications/Racket v6.1/bin"
 
 
-# Loading Scripts
-## Load BOXEN
-source_silent "/opt/boxen/env.sh"
 
+# Loading Scripts
 ## Load virtualenvwrapper
 # source_silent "/usr/local/bin/virtualenvwrapper.sh"
-
-## Load RVM
-source_silent "$HOME/.rvm/scripts/rvm"
 
 ## Load Z
 source_silent "`brew --prefix`/etc/profile.d/z.sh"
 
-## Load OPAM
-source_silent "/Users/jakub/.opam/opam-init/init.zsh"
-
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+if [ -d "$GHC_DOT_APP" ]; then
+    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
