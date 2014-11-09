@@ -172,6 +172,9 @@
 " }}}
 
 " Setting up Vim UI {{{
+  " Set default background to dark
+  set background=dark
+
   " Ensure that the background is set properly
   if filereadable(expand("~/.vimrc.background"))
     source ~/.vimrc.background
