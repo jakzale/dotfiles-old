@@ -6,127 +6,50 @@
 #   * add abbreviation for project names, as some might get quite long
 #   * improve handling of multiple status lines in the prompt
 
-# Warning, this might change directory
-function _find_cabal_file() {
-    local cabal_files
-    while [ $PWD != "/" ]; do
-        cabal_files=(*.cabal(N))
-        if [ $#cabal_files -gt 0 ]; then
-            for cabal in $cabal_files; do
-                [ -s $cabal ] && echo "$PWD/$cabal" && return true
-            done
-        fi
-        cd ..
-    done
-    return false
-}
-
 # Bear in mind that cabal does not know about a sandbox in the parent directory
+# function cabal_sandbox_info() {
+#     # Find cabal file
+#     local cabal_file=$(_find_cabal_file) cabal_dir
+#     local cabal_prefix=" λ:(" cabal_suffix="%{$fg[blue]%})%{$reset_color%}"
+#     local cabal_name="" cabal_box
+
+#     if [ -n "$cabal_file" ]; then
+#         # Getting the name of the project
+#         cabal_name=$(sed -n -e 's/^name:[   ]*\([^  ]*\)[   ]*/\1/p' $cabal_file)
+
+#         if [ -z "$cabal_name" ]; then
+#             cabal_name="ε"
+#         elif [ $#cabal_name -gt 5 ]; then
+#             cabal_name="$cabal_name[1,5]…"
+#         fi
+
+#         cabal_dir=$(dirname $cabal_file)
+#         if [ -f "$cabal_dir/cabal.sandbox.config" ]; then
+#             cabal_box="%{$fg[green]%}"
+#         else
+#             cabal_box="%{$fg[red]%}"
+#         fi
+
+#         echo "$cabal_prefix$cabal_box$cabal_name$cabal_suffix"
+#     fi
+# }
+
 function cabal_sandbox_info() {
-    # Find cabal file
-    local cabal_file=$(_find_cabal_file) cabal_dir
-    local cabal_prefix=" λ:(" cabal_suffix="%{$fg[blue]%})%{$reset_color%}"
-    local cabal_name="" cabal_box
-
-    if [ -n "$cabal_file" ]; then
-        # Getting the name of the project
-        cabal_name=$(sed -n -e 's/^name:[   ]*\([^  ]*\)[   ]*/\1/p' $cabal_file)
-
-        if [ -z "$cabal_name" ]; then
-            cabal_name="ε"
-        elif [ $#cabal_name -gt 5 ]; then
-            cabal_name="$cabal_name[1,5]…"
-        fi
-
-        cabal_dir=$(dirname $cabal_file)
-        if [ -f "$cabal_dir/cabal.sandbox.config" ]; then
-            cabal_box="%{$fg[green]%}"
+    cabal_prefix="λ:(" cabal_suffix="%{$fg_bold[blue]%})%{$reset_color%} "
+    cabal_files=(*.cabal(N))
+    if [ $#cabal_files -gt 0 ]; then
+        if [ -f cabal.sandbox.config ]; then
+            echo "$cabal_prefix%{$fg[green]%}✔︎%{$reset_color%}$cabal_suffix"
         else
-            cabal_box="%{$fg[red]%}"
-        fi
-
-        echo "$cabal_prefix$cabal_box$cabal_name$cabal_suffix"
-    fi
-}
-
-# Sandbox aware ghci
-# taken from: http://ro-che.info/articles/2014-03-05-cabal-sandbox-tips.html
-function _find_cabal_db() {
-    local cabal_file=$(_find_cabal_file) cabal_sandbox_config
-
-    if [ -n "$cabal_file" ]; then
-        cabal_sandbox_config="$(dirname $cabal_file)/cabal.sandbox.config"
-
-        if [ -f "$cabal_sandbox_config" ]; then
-            echo $(sed -n -e 's/^package-db: \(.*\)/\1/p' "$cabal_sandbox_config")
+            echo "$cabal_prefix%{$fg[red]%}✘%{$reset_color%}$cabal_suffix"
         fi
     fi
 }
 
-# Translate absolute path to relative path
-# taken from: http://stackoverflow.com/a/12498485
-_absolute_to_real() {
-    # both $1 and $2 are absolute paths beginning with /
-    # returns relative path to $2/$target from $1/$source
-    local source=$1
-    local target=$2
-
-    local common_part=$source # for now
-    local result="" # for now
-
-    while [[ "${target#$common_part}" == "${target}" ]]; do
-        # no match, means that candidate common part is not correct
-        # go up one level (reduce common part)
-        common_part="$(dirname $common_part)"
-        # and record that we went back, with correct / handling
-        if [[ -z $result ]]; then
-            result=".."
-        else
-            result="../$result"
-        fi
-    done
-
-    if [[ $common_part == "/" ]]; then
-        # special case for root (no common path)
-        result="$result/"
-    fi
-
-    # since we now have identified the common part,
-    # compute the non-common part
-    local forward_part="${target#$common_part}"
-
-    # and now stick all parts together
-    if [[ -n $result ]] && [[ -n $forward_part ]]; then
-        result="$result$forward_part"
-    elif [[ -n $forward_part ]]; then
-        # extra slash removal
-        result="${forward_part:1}"
-    fi
-
-    echo $result
-}
-
-# Simple Sandbox aware GHCi wrapper
-function ghci() {
-    local db=$(_find_cabal_db)
-    if [ -n "$db" ]; then
-        echo "$fg_bold[blue]Using Cabal Sandbox:$reset_color $(_absolute_to_real $PWD $db)"
-        command ghci -no-user-package-db -package-db "$db" $@
-    else
-        command ghci $@
-    fi
-}
-
-# Simple Sandbox aware GHC wrapper
-function ghc() {
-    local db=$(_find_cabal_db)
-    if [ -n "$db" ]; then
-        echo "$fg_bold[blue]Using Cabal Sandbox:$reset_color $(_absolute_to_real $PWD $db)"
-        command ghc -no-user-package-db -package-db "$db" $@
-    else
-        command ghc $@
-    fi
-}
+# Sandbox aware ghc, ghci and runhaskell
+alias ghc="cabal exec ghc -- "
+alias ghci="cabal exec ghci -- "
+alias runhaskell="cabal exec runhaskell -- "
 
 function _cabal_commands() {
     local ret=1 state
