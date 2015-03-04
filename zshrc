@@ -76,6 +76,9 @@ fi
 ## Use Haskell, added first to use updated cabal
 pathify "$HOME/Library/Haskell/bin:$PATH"
 
+## Use neovim
+pathify "$HOME/neovim/bin:$PATH"
+
 # Loading Scripts
 ## Load virtualenvwrapper
 source_silent "`brew --prefix`/bin/virtualenvwrapper.sh"
