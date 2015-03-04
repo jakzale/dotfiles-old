@@ -78,7 +78,7 @@ pathify "$HOME/Library/Haskell/bin:$PATH"
 
 # Loading Scripts
 ## Load virtualenvwrapper
-# source_silent "/usr/local/bin/virtualenvwrapper.sh"
+source_silent "`brew --prefix`/bin/virtualenvwrapper.sh"
 
 ## Load Z
 source_silent "`brew --prefix`/etc/profile.d/z.sh"
