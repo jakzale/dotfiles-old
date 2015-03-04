@@ -108,6 +108,9 @@
 
   " Y U NO COMMIT plugin
   NeoBundle 'esneider/YUNOcommit.vim'
+
+  "JSX Plugin
+  NeoBundle 'mxw/vim-jsx'
 " }}}
 
 " NeoBundle End {{{
