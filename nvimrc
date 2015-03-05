@@ -1,4 +1,4 @@
-" vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
+" vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell et sw=2 sts=2 :
 
 " Initial Setup {{{
   " Leaders {{{
@@ -22,7 +22,12 @@
 " }}}
 
 " Plugins {{{
+  " Plugins by tpope
   NeoBundle 'tpope/vim-sensible'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'tpope/vim-commentary'
+
 
   " Vim Arpeggio for key chords
   NeoBundle 'kana/vim-arpeggio'
@@ -37,6 +42,11 @@
   " Solarized color scheme
   NeoBundle 'altercation/vim-colors-solarized'
 
+  " Deal with syntax files once and for all
+  NeoBundle 'sheerun/vim-polyglot'
+
+  " Signify changes with vcs
+  NeoBundle 'mhinz/vim-signify'
 " }}}
 
 " NeoBundle End {{{
@@ -129,7 +139,7 @@
 " }}}
 
 " Plugin Configuration {{{
-
+  " Here are the configurations for all plugins
   " vim-airline {{{
     if isdirectory(expand("~/.vim/bundle/vim-airline/"))
       if !exists('g:airline_theme')
@@ -140,6 +150,4 @@
       let g:airline_right_sep=''
     endif
   " }}}
-" }}}
-" {{{
 " }}}
