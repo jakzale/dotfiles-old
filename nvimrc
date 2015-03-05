@@ -80,6 +80,31 @@
 
 " }}}
 
+" General {{{
+  set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+  set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+  set virtualedit=onemore             " Allow for cursor beyond last character
+  set history=1000                    " Store a ton of history (default is 20)
+  set spell                           " Spell checking on
+  set hidden                          " Allow buffer switching without saving
+  set iskeyword-=.                    " '.' is an end of word designator
+  set iskeyword-=#                    " '#' is an end of word designator
+  set iskeyword-=-                    " '-' is an end of word designator
+
+  " Instead of reverting the cursor to the last position in the buffer, we
+  " set it to the first line when editing a git commit message
+  au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+  " Setting up the directories {{{
+  set backup
+  if has('persistent_undo')
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+  endif
+  " }}}
+" }}}
+
 " Setting up NeoVim UI {{{
   " Set default background to dark
   set background=dark
@@ -155,7 +180,6 @@
       let g:airline_right_sep=''
     endif
   " }}}
-
   " Fugitive {{{
     if isdirectory(expand("~/.nvim/bundle/vim-fugitive/"))
       nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -172,7 +196,6 @@
       nnoremap <silent> <leader>gg :SignifyToggle<CR>
     endif
   " }}}
-
   " UndoTree {{{
       if isdirectory(expand("~/.nvim/bundle/undotree/"))
         nnoremap <Leader>u :UndotreeToggle<CR>
@@ -181,4 +204,47 @@
       endif
   " }}}
 
+" }}}
+
+" Initialize directories {{{
+  function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'nvim'
+    let dir_list = {
+          \ 'backup': 'backupdir',
+          \ 'views': 'viewdir',
+          \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+      let dir_list['undo'] = 'undodir'
+    endif
+
+    " To specify a different directory in which to place the vimbackup,
+    " vimviews, vimundo, and vimswap files/directories, add the following to
+    " your .vimrc.before.local file:
+    "   let g:spf13_consolidated_directory = <full path to desired directory>
+    "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
+    if exists('g:spf13_consolidated_directory')
+      let common_dir = g:spf13_consolidated_directory . prefix
+    else
+      let common_dir = parent . '/.' . prefix
+    endif
+
+    for [dirname, settingname] in items(dir_list)
+      let directory = common_dir . dirname . '/'
+      if exists("*mkdir")
+        if !isdirectory(directory)
+          call mkdir(directory)
+        endif
+      endif
+      if !isdirectory(directory)
+        echo "Warning: Unable to create backup directory: " . directory
+        echo "Try: mkdir -p " . directory
+      else
+        let directory = substitute(directory, " ", "\\\\ ", "g")
+        exec "set " . settingname . "=" . directory
+      endif
+    endfor
+  endfunction
+  call InitializeDirectories()
 " }}}
