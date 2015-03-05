@@ -47,6 +47,10 @@
 
   " Signify changes with vcs
   NeoBundle 'mhinz/vim-signify'
+
+  " UndoTree
+  NeoBundle 'mbbill/undotree'
+
 " }}}
 
 " NeoBundle End {{{
@@ -167,6 +171,14 @@
       nnoremap <silent> <leader>gi :Git add -p %<CR>
       nnoremap <silent> <leader>gg :SignifyToggle<CR>
     endif
+  " }}}
+
+  " UndoTree {{{
+      if isdirectory(expand("~/.nvim/bundle/undotree/"))
+        nnoremap <Leader>u :UndotreeToggle<CR>
+        " If undotree is opened, it is likely one wants to interact with it.
+        let g:undotree_SetFocusWhenToggle=1
+      endif
   " }}}
 
 " }}}
