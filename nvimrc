@@ -99,13 +99,6 @@
   set tabpagemax=15
   set cursorline
 
-  if has('cmdline_info')
-      set ruler                   " Show the ruler
-      set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-      set showcmd                 " Show partial commands in status line and
-                                  " Selected characters/lines in visual mode
-  endif
-
   set backspace=indent,eol,start  " Backspace for dummies
   set linespace=0                 " No extra spaces between rows
   set nu                          " Line numbers on
