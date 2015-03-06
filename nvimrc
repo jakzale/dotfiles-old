@@ -30,6 +30,17 @@
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-commentary'
 
+  " Plugins By Shougo
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/vimproc.vim', {
+        \ 'build' : {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin' : 'make -f make_cygwin.mak',
+        \     'mac' : 'make -f make_mac.mak',
+        \     'unix' : 'make -f make_unix.mak',
+        \    },
+        \ }
+
   " Vim Arpeggio for key chords
   NeoBundle 'kana/vim-arpeggio'
 
