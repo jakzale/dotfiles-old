@@ -30,7 +30,6 @@
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-commentary'
 
-
   " Vim Arpeggio for key chords
   NeoBundle 'kana/vim-arpeggio'
 
