@@ -59,6 +59,15 @@
   " UltiSnips with Snippets
   NeoBundle 'SirVer/ultisnips'
   NeoBundle 'honza/vim-snippets'
+
+  " Tabular
+  NeoBundle 'godlygeek/tabular'
+
+  " Y U NO COMMIT plugin
+  NeoBundle 'esneider/YUNOcommit.vim'
+
+  " Syntastic
+  NeoBundle 'scrooloose/syntastic'
 " }}}
 
 " NeoBundle End {{{
@@ -221,6 +230,9 @@
     let g:UltiSnipsJumpForwardTrigger = '<C-j>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+  " }}}
+  " Syntastic {{{
+    let g:syntastic_haskell_checkers=[]
   " }}}
 
 " }}}
