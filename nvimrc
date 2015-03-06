@@ -56,6 +56,9 @@
   " YouCompleteMe
   NeoBundle 'Valloric/YouCompleteMe'
 
+  " UltiSnips with Snippets
+  NeoBundle 'SirVer/ultisnips'
+  NeoBundle 'honza/vim-snippets'
 " }}}
 
 " NeoBundle End {{{
@@ -207,6 +210,17 @@
         " If undotree is opened, it is likely one wants to interact with it.
         let g:undotree_SetFocusWhenToggle=1
       endif
+  " }}}
+  " YouCompleteMe {{{
+
+    " enable completion from tags
+    let g:ycm_collect_identifiers_from_tags_files = 1
+
+    " remap Ultisnips for compatibility for YCM
+    let g:UltiSnipsExpandTrigger = '<C-j>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
   " }}}
 
 " }}}
