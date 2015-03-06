@@ -263,7 +263,7 @@
                 \ 'fallback': s:ctrlp_fallback
             \ }
         endif
-    "}
+    "}}}
 " }}}
 
 " Initialize directories {{{
