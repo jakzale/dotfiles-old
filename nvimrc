@@ -1,5 +1,7 @@
 " vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell et sw=2 sts=2 :
 
+" A config file for NeoVim
+
 " Initial Setup {{{
   " Leaders {{{
     let mapleader = "\<Space>"
@@ -50,6 +52,9 @@
 
   " UndoTree
   NeoBundle 'mbbill/undotree'
+
+  " YouCompleteMe
+  NeoBundle 'Valloric/YouCompleteMe'
 
 " }}}
 
