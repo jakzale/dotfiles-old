@@ -46,6 +46,9 @@
   " Deal with syntax files once and for all
   NeoBundle 'sheerun/vim-polyglot'
 
+  " Syntax files for JSX
+  NeoBundle 'mxw/vim-jsx'
+
   " Signify changes with vcs
   NeoBundle 'mhinz/vim-signify'
 
