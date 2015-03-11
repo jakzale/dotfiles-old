@@ -73,6 +73,9 @@
 
   " ctrlp
   NeoBundle 'kien/ctrlp.vim'
+
+  " Ag
+  NeoBundle 'rking/ag.vim'
 " }}}
 
 " NeoBundle End {{{
