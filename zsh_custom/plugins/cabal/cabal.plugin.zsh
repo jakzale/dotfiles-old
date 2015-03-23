@@ -47,9 +47,9 @@ function cabal_sandbox_info() {
 }
 
 # Sandbox aware ghc, ghci and runhaskell
-alias ghc="cabal exec ghc -- "
-alias ghci="cabal exec ghci -- "
-alias runhaskell="cabal exec runhaskell -- "
+alias cghc="cabal exec ghc -- "
+alias cghci="cabal exec ghci -- "
+alias crunhaskell="cabal exec runhaskell -- "
 
 function _cabal_commands() {
     local ret=1 state
