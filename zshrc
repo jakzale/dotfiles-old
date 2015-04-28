@@ -68,7 +68,7 @@ source_silent "/opt/boxen/env.sh"
 pathify "$PATH:/Applications/Racket v6.1/bin"
 
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
 if [ -d "$GHC_DOT_APP" ]; then
     pathify "${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
