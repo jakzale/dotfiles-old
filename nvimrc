@@ -103,6 +103,10 @@
   vnoremap < <gv
   vnoremap > >gv
 
+  " Mappings for terminal mode
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap jk <C-\><C-n>
+
 " }}}
 
 " General {{{
