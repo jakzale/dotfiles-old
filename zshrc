@@ -35,7 +35,7 @@ source "$ZSH/oh-my-zsh.sh"
 # Setting up globals
 
 ## Setting up the editor variable
-export EDITOR="vim"
+export EDITOR="nvim"
 
 ## Setting up the OpenGL profiler
 export GL_ENABLE_DEBUG_ATTACH=YES
