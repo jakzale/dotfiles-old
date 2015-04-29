@@ -76,6 +76,9 @@
 
   " Ag
   NeoBundle 'rking/ag.vim'
+
+  " Neco Ghc
+  NeoBundle 'eagletmt/neco-ghc'
 " }}}
 
 " NeoBundle End {{{
@@ -274,6 +277,17 @@
             \ }
         endif
     "}}}
+
+    " Neco GHC {{{
+    " TODO: Refactor and Fix
+    " Doing this as autocmd for now, consider refactoring to a separate
+    " package with settings (or at least separate ftplugin file
+      augroup Haskell
+        autocmd!
+        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+      augroup END
+      let g:ycm_semantic_triggers = {'haskell' : ['.']}
+    " }}}
 " }}}
 
 " Initialize directories {{{
