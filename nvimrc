@@ -110,6 +110,12 @@
   tnoremap <Esc> <C-\><C-n>
   tnoremap jk <C-\><C-n>
 
+  "Assuming TmuxNavigator is installed
+  tnoremap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+  tnoremap <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
+  tnoremap <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
+  tnoremap <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
+
 " }}}
 
 " General {{{
