@@ -203,6 +203,9 @@
   set splitright
   set splitbelow
   set pastetoggle=<F12>
+
+  " Default indentation
+  set ts=2 sw=2 sts=2 et
 " }}}
 
 " Plugin Configuration {{{
