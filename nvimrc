@@ -314,11 +314,14 @@
   " TODO: Figure out where to put it
 
   " Open a simple terminal
+  " TODO: Figure out if this will produce a handle to operate on
   function Terminal()
     split term://zsh
   endfunction
 
   command Term call Terminal()
+
+  nnoremap <leader>t :Term<CR>
 " }}}
 
 " Initialize directories {{{
