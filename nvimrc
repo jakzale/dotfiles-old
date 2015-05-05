@@ -310,6 +310,17 @@
     " }}}
 " }}}
 
+" {{{ My Own Stuff
+  " TODO: Figure out where to put it
+
+  " Open a simple terminal
+  function Terminal()
+    split term://zsh
+  endfunction
+
+  command Term call Terminal()
+" }}}
+
 " Initialize directories {{{
   function! InitializeDirectories()
     let parent = $HOME
