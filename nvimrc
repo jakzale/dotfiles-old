@@ -80,16 +80,16 @@
   " TODO: Figure out how to fix those
   " " Neco Ghc
   " NeoBundle 'eagletmt/neco-ghc'
-  " " Vimproc
-  " NeoBundle 'Shougo/vimproc.vim', {
-  "       \ 'build' : {
-  "       \     'windows' : 'tools\\update-dll-mingw',
-  "       \     'cygwin' : 'make -f make_cygwin.mak',
-  "       \     'mac' : 'make -f make_mac.mak',
-  "       \     'linux' : 'make',
-  "       \     'unix' : 'gmake',
-  "       \    },
-  "       \ }
+  " Vimproc -- for NeoBundle
+  NeoBundle 'Shougo/vimproc.vim', {
+        \ 'build' : {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin' : 'make -f make_cygwin.mak',
+        \     'mac' : 'make -f make_mac.mak',
+        \     'linux' : 'make',
+        \     'unix' : 'gmake',
+        \    },
+        \ }
 " }}}
 
 " NeoBundle End {{{
