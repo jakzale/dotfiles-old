@@ -86,3 +86,6 @@ source_silent "`brew --prefix`/bin/virtualenvwrapper.sh"
 ## Load Z
 source_silent "`brew --prefix`/etc/profile.d/z.sh"
 
+## Set up NaCl_SDL to Pepper Canary
+export NACL_SDK_ROOT="${HOME}/src/nacl_sdk/pepper_canary"
+export CHROME_PATH="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
