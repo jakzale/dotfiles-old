@@ -61,20 +61,26 @@ function pathify() {
 ## Load BOXEN
 source_silent "/opt/boxen/env.sh"
 
-## Use Haskell, added first to use updated cabal
-# pathify "$HOME/Library/Haskell/bin:$PATH"
-
 ## Use Racket command line
 pathify "$PATH:/Applications/Racket v6.1/bin"
 
+## Handling Haskell with Halcyon
+# Haskell versions
+# export HALCYON_GHC_VERSION="7.10.1"
+# export HALCYON_CABAL_VERSION="1.22.4.0"
+# mounting Halcyon
+eval "$( /app/halcyon/halcyon paths )"
+
+
+
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
-if [ -d "$GHC_DOT_APP" ]; then
-    pathify "${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
+# export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
+# if [ -d "$GHC_DOT_APP" ]; then
+#     pathify "${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+# fi
 
 ## Use Haskell, added first to use updated cabal
-pathify "$HOME/Library/Haskell/bin:$PATH"
+# pathify "$HOME/Library/Haskell/bin:$PATH"
 
 ## Use neovim
 pathify "$HOME/neovim/bin:$PATH"
