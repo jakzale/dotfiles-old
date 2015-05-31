@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh configuration.
+
 ZSH=$HOME/.oh-my-zsh
 
 # ZSH_CUSTOMIZATION
@@ -68,16 +68,17 @@ pathify "$PATH:/Applications/Racket v6.1/bin"
 # Haskell versions
 # export HALCYON_GHC_VERSION="7.10.1"
 # export HALCYON_CABAL_VERSION="1.22.4.0"
+# Prevent self udpate
+# export HALCYON_NO_SELF_UPDATE=1
+# export HALCYON_NO_CLEAN_CACHE=1
 # mounting Halcyon
-eval "$( /app/halcyon/halcyon paths )"
+# eval "$( /app/halcyon/halcyon paths )"
 
-
-
-# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-# export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
-# if [ -d "$GHC_DOT_APP" ]; then
-#     pathify "${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-# fi
+# Add GHC 7.10.1 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
+if [ -d "$GHC_DOT_APP" ]; then
+    pathify "${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
 
 ## Use Haskell, added first to use updated cabal
 # pathify "$HOME/Library/Haskell/bin:$PATH"
