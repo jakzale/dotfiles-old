@@ -84,7 +84,7 @@ fi
 # pathify "$HOME/Library/Haskell/bin:$PATH"
 
 ## Use neovim
-pathify "$HOME/neovim/bin:$PATH"
+# pathify "$HOME/neovim/bin:$PATH"
 
 # Loading Scripts
 ## Load virtualenvwrapper
@@ -96,3 +96,9 @@ source_silent "`brew --prefix`/etc/profile.d/z.sh"
 ## Set up NaCl_SDL to Pepper Canary
 export NACL_SDK_ROOT="${HOME}/src/nacl_sdk/pepper_canary"
 export CHROME_PATH="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+
+## Set up wrappers for gsoc
+pathify "$PATH:$HOME/src/haskell/PNaCl/gsoc/wrappers"
+
+# Set up depot_tools for gsoc
+pathify "${HOME}/src/depot_tools:$PATH"
