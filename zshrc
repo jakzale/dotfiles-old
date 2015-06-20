@@ -105,3 +105,6 @@ pathify "$HOME/src/haskell/PNaCl/gsoc/wrappers:$PATH"
 
 # Set up depot_tools for gsoc
 pathify "${HOME}/src/depot_tools:$PATH"
+
+# Set up arcanist for gsoc
+pathify "${HOME}/src/arcanist/bin:$PATH"
