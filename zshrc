@@ -97,8 +97,11 @@ source_silent "`brew --prefix`/etc/profile.d/z.sh"
 export NACL_SDK_ROOT="${HOME}/src/nacl_sdk/pepper_canary"
 export CHROME_PATH="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 
+## Set up the nacl source root
+export NACL_ROOT="${HOME}/src/native_client"
+
 ## Set up wrappers for gsoc
-pathify "$PATH:$HOME/src/haskell/PNaCl/gsoc/wrappers"
+pathify "$HOME/src/haskell/PNaCl/gsoc/wrappers:$PATH"
 
 # Set up depot_tools for gsoc
 pathify "${HOME}/src/depot_tools:$PATH"
