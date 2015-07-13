@@ -90,6 +90,12 @@
         \     'unix' : 'gmake',
         \    },
         \ }
+
+  " Install plugn for Idris
+  NeoBundle "idris-hackers/idris-vim"
+
+  " Install plugin for floobits
+  NeoBundle "floobits/floobits-neovim"
 " }}}
 
 " NeoBundle End {{{
@@ -315,9 +321,9 @@
 
   " Open a simple terminal
   " TODO: Figure out if this will produce a handle to operate on
-  function Terminal()
-    split term://zsh
-  endfunction
+  " function Terminal()
+  "   split term://zsh
+  " endfunction
 
   command Term call Terminal()
 
