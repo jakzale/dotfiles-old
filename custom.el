@@ -1,8 +1,11 @@
 ;;;; My own custom configuration
-;; Prelude personal configuration
 
-;; Load org mode and trello integration
+;; Load my own plugins
 (require 'org-trello)
+(require 'pomodoro)
+
+;; Add pomodoro to modeline
+(pomodoro-add-to-mode-line)
 
 ;; Trello org-mode configuration
 
