@@ -18,7 +18,7 @@
 (require 'shm)
 
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (add-hook 'haskell-mode-hook 'hindent-mode)
+(add-hook 'haskell-mode-hook 'hindent-mode)
 
 ;; Load my own plugins
 (require 'org-trello)
