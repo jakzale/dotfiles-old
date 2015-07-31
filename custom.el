@@ -1,4 +1,24 @@
-;;;; My own custom configuration
+;;;; package --- My own custom configuration
+;;;; Commentary:
+;;;;   My own custom configuration
+
+;;;; Code:
+
+;; Structured Haskell Mode configuration
+
+;; Trying not to pollute the global space
+(let ((my-hindent-path (expand-file-name "~/src/hindent/elisp"))
+      (my-shm-path (expand-file-name "~/src/structured_haskell_mode/elisp")))
+  (add-to-list 'load-path my-hindent-path)
+  (byte-recompile-directory my-hindent-path 0)
+  (add-to-list 'load-path my-shm-path)
+  (byte-recompile-directory my-shm-path 0))
+
+(require 'hindent)
+(require 'shm)
+
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'hindent-mode)
 
 ;; Load my own plugins
 (require 'org-trello)
