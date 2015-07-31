@@ -30,7 +30,8 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(org-journal-dir "~/Dropbox/journal/")
  '(org-trello-current-prefix-keybinding "C-c x" nil (org-trello))
- '(pomodoro-play-sounds nil))
+ '(pomodoro-play-sounds nil)
+ '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8-unix)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
