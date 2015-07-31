@@ -10,54 +10,54 @@
 
 ;; Structured Haskell Mode configuration
 
-;; Trying not to pollute the global space
-(let ((my-hindent-path (expand-file-name "~/src/hindent/elisp"))
-      (my-shm-path (expand-file-name "~/src/structured_haskell_mode/elisp")))
-  (add-to-list 'load-path my-hindent-path)
-  (byte-recompile-directory my-hindent-path 0)
-  (add-to-list 'load-path my-shm-path)
-  (byte-recompile-directory my-shm-path 0))
+;; ;; Trying not to pollute the global space
+;; (let ((my-hindent-path (expand-file-name "~/src/hindent/elisp"))
+;;       (my-shm-path (expand-file-name "~/src/structured_haskell_mode/elisp")))
+;;   (add-to-list 'load-path my-hindent-path)
+;;   (byte-recompile-directory my-hindent-path 0)
+;;   (add-to-list 'load-path my-shm-path)
+;;   (byte-recompile-directory my-shm-path 0))
 
-(require 'prelude-programming)
-(prelude-require-packages '(haskell-mode))
+;; (require 'prelude-programming)
+;; (prelude-require-packages '(haskell-mode))
 
-(require 'hindent)
-(require 'shm)
+;; (require 'hindent)
+;; (require 'shm)
 
-;; Slightly modified prelude-haskell
+;; ;; Slightly modified prelude-haskell
 
-(defun my-nonclashing-haskell-mode-keys ()
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-  ;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-  )
+;; (defun my-nonclashing-haskell-mode-keys ()
+;;   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+;;   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+;;   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+;;   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+;;   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+;;   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+;;   ;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+;;   )
 
-(defun my-nonclashing-cabal-mode-keys ()
-  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal))
+;; (defun my-nonclashing-cabal-mode-keys ()
+;;   (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+;;   (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+;;   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+;;   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal))
 
-;; Also, manually setting up bindings for cabal
-(eval-after-load 'haskell-cabal
-  '(my-nonclashing-cabal-mode-keys))
+;; ;; Also, manually setting up bindings for cabal
+;; (eval-after-load 'haskell-cabal
+;;   '(my-nonclashing-cabal-mode-keys))
 
-(eval-after-load 'haskell-mode
-  '(progn
-     ;; Defining keys manually
-     (my-nonclashing-haskell-mode-keys)
-     ;; Defining custom prelude hook
-     (defun prelude-haskell-mode-defaults ()
-       (structured-haskell-mode +1)
-       (hindent-mode +1))
-     (setq prelude-haskell-mode-hook 'prelude-haskell-mode-defaults)
+;; (eval-after-load 'haskell-mode
+;;   '(progn
+;;      ;; Defining keys manually
+;;      (my-nonclashing-haskell-mode-keys)
+;;      ;; Defining custom prelude hook
+;;      (defun prelude-haskell-mode-defaults ()
+;;        (structured-haskell-mode +1)
+;;        (hindent-mode +1))
+;;      (setq prelude-haskell-mode-hook 'prelude-haskell-mode-defaults)
 
-     (add-hook 'haskell-mode-hook (lambda ()
-                                    (run-hooks 'prelude-haskell-mode-hook)))))
+;;      (add-hook 'haskell-mode-hook (lambda ()
+;;                                     (run-hooks 'prelude-haskell-mode-hook)))))
 
 
 ;; Load my own plugins
