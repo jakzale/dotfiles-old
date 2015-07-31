@@ -4,6 +4,10 @@
 
 ;;;; Code:
 
+;; First of all -- defining proper emacs keys
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+
 ;; Structured Haskell Mode configuration
 
 ;; Trying not to pollute the global space
