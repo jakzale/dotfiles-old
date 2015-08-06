@@ -78,6 +78,20 @@
               (when (and fname (string= "trello" (file-name-extension fname)))
                 (org-trello-mode)))))
 
+;; My custom theme swapper... Couldn't be bored to swap it manually
+(defun my-swap-theme ()
+  "A simple function to swap current theme with solarized-light or vice-versa."
+  (flet ((is-light-theme ()
+                         (member 'solarized-light custom-enabled-themes)))
+    (if (is-light-theme)
+        (disable-theme 'solarized-light)
+      (enable-theme 'solarized-light))))
+
+;; I will try to bind it to s-\ for now
+(global-set-key (kbd "s-\\") (lambda ()
+                               (interactive)
+                               (my-swap-theme)))
+
 ;;;; Custom set variables
 
 (custom-set-variables
