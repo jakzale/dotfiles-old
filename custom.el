@@ -79,10 +79,15 @@
                 (org-trello-mode)))))
 
 ;; My custom theme swapper... Couldn't be bored to swap it manually
+;; load solarized-light theme, so it can be enabled
+;; Load, and do not enable
+(load-theme 'solarized-light t t)
+
 (defun my-swap-theme ()
   "A simple function to swap current theme with solarized-light or vice-versa."
   (flet ((is-light-theme ()
-                         (member 'solarized-light custom-enabled-themes)))
+                         (eq 'solarized-light
+                             (car custom-enabled-themes))))
     (if (is-light-theme)
         (disable-theme 'solarized-light)
       (enable-theme 'solarized-light))))
