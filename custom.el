@@ -106,6 +106,18 @@
   (alert "Done!" :persistent t))
 
 
+;; Making sure that flycheck works nice with Haskell
+(eval-after-load 'flycheck
+ '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
+;; Prevent from hanging on cabal repl suggestions
+(defun haskell-process-trigger-suggestions-ad (orig-fun &rest args)
+  (turn-off-haskell-doc)
+  (apply orig-fun args)
+  (turn-on-haskell-doc))
+
+(advice-add 'haskell-process-trigger-suggestions
+            :around #'haskell-process-trigger-suggestions-ad)
 ;;;; Custom set variables
 
 (custom-set-variables
@@ -116,7 +128,7 @@
  '(alert-default-style (quote notifier))
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+    ("2e5705ad7ee6cfd6ab5ce81e711c526ac22abed90b852ffaf0b316aa7864b11f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
