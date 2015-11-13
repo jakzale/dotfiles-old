@@ -95,3 +95,6 @@ pathify "${HOME}/src/depot_tools:$PATH"
 
 # Set up arcanist for gsoc
 pathify "${HOME}/src/arcanist/bin:$PATH"
+
+# Setting up JAVA_HOME correctly
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.7 2>/dev/null)"
