@@ -60,6 +60,14 @@
 ;;                                     (run-hooks 'prelude-haskell-mode-hook)))))
 
 
+;; Setting up ghc-mod
+;; For some reason, it is really unstable
+
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+
 ;; Load my own plugins
 (require 'org-trello)
 (require 'pomodoro)
