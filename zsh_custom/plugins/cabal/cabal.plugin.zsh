@@ -34,14 +34,30 @@
 #     fi
 # }
 
+# function cabal_sandbox_info() {
+#     cabal_prefix="λ:(" cabal_suffix="%{$fg_bold[blue]%}) %{$reset_color%}"
+#     cabal_files=(*.cabal(N))
+#     if [ $#cabal_files -gt 0 ]; then
+#         if [ -f cabal.sandbox.config ]; then
+#             echo "$cabal_prefix%{$fg[green]%}✔︎%{$reset_color%}$cabal_suffix"
+#         else
+#             echo "$cabal_prefix%{$fg[red]%}✘%{$reset_color%}$cabal_suffix"
+#         fi
+#     fi
+# }
+
 function cabal_sandbox_info() {
-    cabal_prefix="λ:(" cabal_suffix="%{$fg_bold[blue]%})%{$reset_color%} "
     cabal_files=(*.cabal(N))
+
     if [ $#cabal_files -gt 0 ]; then
         if [ -f cabal.sandbox.config ]; then
-            echo "$cabal_prefix%{$fg[green]%}✔︎%{$reset_color%}$cabal_suffix"
+            echo -n "%{$fg[blue]%}λ:(%{$fg[green]%}✓%{$fg[blue]%})"
         else
-            echo "$cabal_prefix%{$fg[red]%}✘%{$reset_color%}$cabal_suffix"
+            echo -n "%{$fg[blue]%}λ:(%{$fg[red]%}✗%{$fg[blue]%})"
+        fi
+    else
+        if [ -f cabal.sandbox.config ]; then
+            echo -n "%{$fg[blue]%}λ:(%{$fg[yellow]%}Ɛ%{$fg[blue]%})"
         fi
     fi
 }
