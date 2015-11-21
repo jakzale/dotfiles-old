@@ -55,6 +55,8 @@ nnoremap <leader>q gqap
 
 " Show up git status
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gc :Gcommit<CR>
 
 " Markdown {{{
 augroup markdown_config
