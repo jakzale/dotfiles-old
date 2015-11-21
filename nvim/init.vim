@@ -41,6 +41,8 @@ set showcmd
 set cursorline
 set showmatch
 
+" Do not display the current mode
+set noshowmode
 
 " Save two key strokes on formatting paragraphs
 nnoremap <leader>q gqap
@@ -59,15 +61,14 @@ augroup END
 augroup airline_config
   autocmd!
 
-  " do not show mode
-  set noshowmode
-
   " disable showing separators
   let g:airline_left_sep = ''
   let g:airline_right_sep = ''
 
   " use airline tabline extension
   let g:airline#extensions#tabline#enabled = 1
+
+  " TODO: Analyse that .nvimrc further
 augroup END
 " }}}
 
