@@ -50,12 +50,13 @@ nnoremap <leader>q gqap
 " Show up git status
 nnoremap <leader>gs :Gstatus<CR>
 
-augroup myGroup
+" Markdown {{{
+augroup markdown_config
   autocmd!
 
-  " Markdown specific settings
   autocmd FileType markdown nnoremap <silent> <leader>o :!open -a Marked\ 2 %<CR>
 augroup END
+" }}}
 
 " Airline.vim {{{
 augroup airline_config
@@ -72,6 +73,7 @@ augroup airline_config
 augroup END
 " }}}
 
+" TODO: consider using vim-pandoc plugin 
 
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
