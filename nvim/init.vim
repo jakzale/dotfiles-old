@@ -1,18 +1,32 @@
 " vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell et sw=2 sts=2 :
 
-" A simple config file for neovim
+" NeoVim {{{
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" Wait for a new release of iterm
+" }}}
 
-" not sure if this is needed
+" Syntax highlighting {{{
 set t_Co=256
-" try using badwolf for now
+set background=dark
+syntax on
 colorscheme badwolf
+" }}}
+
+" Mapleader {{{
+let mapleader="\<Space>"
+nnoremap <space> <nop>
+" }}}
+
+" Esc {{{
+" Consider using arpeggio
+inoremap jk <esc>
+" }}}
+
 
 filetype indent on
 set wildmenu
 
-inoremap jk <esc>
-let mapleader="\<Space>"
-nnoremap <space> <nop>
 
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
@@ -37,3 +51,7 @@ augroup myGroup
   " Markdown specific settings
   autocmd FileType markdown nnoremap <silent> <leader>o :!open -a Marked\ 2 %<CR>
 augroup END
+
+" path to plugged hardcoded for now
+call plug#begin('~/.config/nvim/plugged')
+call plug#end()
