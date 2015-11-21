@@ -1,5 +1,11 @@
 " vim: tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell et sw=2 sts=2 :
 
+" TODO: consider using vim-pandoc plugin
+" TODO: consider writing my own syntax for my own dialect of markdown
+" TODO: play around with the ctrlp plugin
+" TODO: consider adding the py-matcher plugin
+" TODO: consider adding the `ag` plugin
+
 " NeoVim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -72,9 +78,6 @@ augroup airline_config
   " TODO: Analyse that .nvimrc further
 augroup END
 " }}}
-
-" TODO: consider using vim-pandoc plugin
-" TODO: consider writing my own syntax for my own dialect of markdown
 
 " Plugins {{{
 " path to plugged hardcoded for now
