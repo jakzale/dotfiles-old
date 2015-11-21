@@ -7,6 +7,8 @@
 " TODO: consider adding the `ag` plugin
 " TODO: Read about fugitive
 "         https://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/
+" TODO: Read about writing actual text in vim
+"         https://github.com/reedes/vim-pencil
 
 " NeoVim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
