@@ -45,6 +45,9 @@ set showmatch
 " Save two key strokes on formatting paragraphs
 nnoremap <leader>q gqap
 
+" Show up git status
+nnoremap <leader>gs :Gstatus<CR>
+
 augroup myGroup
   autocmd!
 
