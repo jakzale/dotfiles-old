@@ -5,6 +5,8 @@
 " TODO: play around with the ctrlp plugin
 " TODO: consider adding the py-matcher plugin
 " TODO: consider adding the `ag` plugin
+" TODO: Read about fugitive
+"         https://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/
 
 " NeoVim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
