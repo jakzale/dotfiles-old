@@ -54,4 +54,5 @@ augroup END
 
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
+Plug 'tpope/vim-fugitive'
 call plug#end()
