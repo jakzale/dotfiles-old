@@ -18,6 +18,8 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 set tabstop=2
 set softtabstop=2
+" not sure if this part is relevant
+set shiftwidth=2
 set expandtab
 
 set number
@@ -25,3 +27,13 @@ set showcmd
 set cursorline
 set showmatch
 
+
+" Save two key strokes on formatting paragraphs
+nnoremap <leader>q gqap
+
+augroup myGroup
+  autocmd!
+
+  " Markdown specific settings
+  autocmd FileType markdown nnoremap <silent> <leader>o :!open -a Marked\ 2 %<CR>
+augroup END
