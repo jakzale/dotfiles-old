@@ -55,7 +55,25 @@ augroup myGroup
   autocmd FileType markdown nnoremap <silent> <leader>o :!open -a Marked\ 2 %<CR>
 augroup END
 
+" Airline.vim {{{
+augroup airline_config
+  autocmd!
+
+  " do not show mode
+  set noshowmode
+
+  " disable showing separators
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+
+  " use airline tabline extension
+  let g:airline#extensions#tabline#enabled = 1
+augroup END
+" }}}
+
+
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
+Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 call plug#end()
