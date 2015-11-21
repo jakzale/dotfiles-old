@@ -73,10 +73,12 @@ augroup airline_config
 augroup END
 " }}}
 
-" TODO: consider using vim-pandoc plugin 
+" TODO: consider using vim-pandoc plugin
+" TODO: consider writing my own syntax for my own dialect of markdown
 
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
