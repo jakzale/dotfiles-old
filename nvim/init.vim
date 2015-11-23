@@ -61,6 +61,16 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 
+" EasyAlign {{{
+augroup easyalign_config
+  autocmd!
+
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+augroup END
+" }}}
+
+
 " Markdown {{{
 augroup markdown_config
   autocmd!
@@ -89,6 +99,7 @@ augroup END
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
