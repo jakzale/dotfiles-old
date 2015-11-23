@@ -70,12 +70,18 @@ augroup easyalign_config
 augroup END
 " }}}
 
-
 " Markdown {{{
 augroup markdown_config
   autocmd!
+  if !exists("g:marked_command")
+    let g:marked_command = "open -a Marked\\ 2"
+  endif
 
-  autocmd FileType markdown nnoremap <silent> <leader>o :!open -a Marked\ 2 %<CR>
+  function! OpenInMarked()
+    execute "silent !" . g:marked_command . " " . bufname("%") 
+  endfunction
+
+  autocmd FileType markdown nnoremap <buffer> <leader>o :call OpenInMarked()<cr>
 augroup END
 " }}}
 
