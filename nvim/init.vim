@@ -120,6 +120,7 @@ augroup END
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
