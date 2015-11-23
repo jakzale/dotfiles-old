@@ -102,6 +102,7 @@ Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 call plug#end()
 " }}}
