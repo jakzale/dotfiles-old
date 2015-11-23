@@ -81,7 +81,23 @@ augroup markdown_config
     execute "silent !" . g:marked_command . " " . bufname("%") 
   endfunction
 
+  if !exists("g:pandoc_command")
+    let g:pandoc_command = "pandoc"
+  endif
+
+  if !exists("g:pandoc_flags")
+    let g:pandoc_flags = "-f markdown -t beamer --latex-engine=xelatex"
+  endif
+
+  function! CompilePresentationWithPandoc()
+    let infile = bufname("%")
+    let outfile = fnamemodify(infile, ":r") . ".pdf"
+    execute "!" . g:pandoc_command . " " . g:pandoc_flags . " ". infile
+              \ . " -o " . outfile
+  endfunction
+
   autocmd FileType markdown nnoremap <buffer> <leader>o :call OpenInMarked()<cr>
+  autocmd FileType markdown nnoremap <buffer> <leader>p :call CompilePresentationWithPandoc()<cr>
 augroup END
 " }}}
 
