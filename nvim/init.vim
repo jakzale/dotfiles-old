@@ -61,6 +61,11 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 
+" Set up the dictionary
+set spell
+" Jolly good!
+set spelllang=en_gb
+
 " EasyAlign {{{
 augroup easyalign_config
   autocmd!
@@ -113,6 +118,22 @@ augroup airline_config
   let g:airline#extensions#tabline#enabled = 1
 
   " TODO: Analyse that .nvimrc further
+augroup END
+" }}}
+
+" Latex {{{
+augroup latex_config
+  autocmd!
+
+  let g:neomake_tex_enabled_makers = ['chktex', 'xelatex']
+
+  let g:neomake_tex_xelatex_maker = {
+        \ 'exe': 'latexmk',
+        \ 'args': ['-xelatex', '-interaction=nonstopmode'],
+        \ 'cwd': '%:p:h'
+        \ }
+
+  " autocmd FileType tex set makeprg=latexmk\ -xelatex\ %   
 augroup END
 " }}}
 
