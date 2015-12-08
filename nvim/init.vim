@@ -53,6 +53,9 @@ set showmatch
 " Do not display the current mode
 set noshowmode
 
+" Smartcase when searching
+set smartcase
+
 " Save two key strokes on formatting paragraphs
 nnoremap <leader>q gqap
 
@@ -143,6 +146,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
+Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
