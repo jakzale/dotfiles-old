@@ -54,6 +54,7 @@ set showmatch
 set noshowmode
 
 " Smartcase when searching
+set ignorecase
 set smartcase
 
 " Save two key strokes on formatting paragraphs
