@@ -70,6 +70,12 @@ set spell
 " Jolly good!
 set spelllang=en_gb
 
+" Toggle show tabs and trailing spaces (,c) {{{
+set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
+set fcs=fold:-
+nnoremap <silent> <leader>c :set nolist!<CR>
+" }}}
+
 " EasyAlign {{{
 augroup easyalign_config
   autocmd!
@@ -87,7 +93,7 @@ augroup markdown_config
   endif
 
   function! OpenInMarked()
-    execute "silent !" . g:marked_command . " " . bufname("%") 
+    execute "silent !" . g:marked_command . " " . bufname("%")
   endfunction
 
   if !exists("g:pandoc_command")
@@ -137,7 +143,7 @@ augroup latex_config
         \ 'cwd': '%:p:h'
         \ }
 
-  " autocmd FileType tex set makeprg=latexmk\ -xelatex\ %   
+  " autocmd FileType tex set makeprg=latexmk\ -xelatex\ %
 augroup END
 " }}}
 
