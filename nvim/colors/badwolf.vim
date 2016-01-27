@@ -646,5 +646,9 @@ call s:HL('VimBracket', 'dress', '', 'none')
 
 " }}}
 
+" Git {{{
+call s:HL('gitCommitFirstLine', 'lime')
+" }}}
+
 " }}}
 
