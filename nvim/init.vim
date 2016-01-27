@@ -19,7 +19,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
 set background=dark
 syntax on
-colorscheme badwolf
+colorscheme gruvbox
 " }}}
 
 " Mapleader {{{
@@ -157,6 +157,7 @@ Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
