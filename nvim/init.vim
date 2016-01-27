@@ -15,12 +15,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
-" Syntax highlighting {{{
-set t_Co=256
-set background=dark
-syntax on
-colorscheme gruvbox
-" }}}
 
 " Mapleader {{{
 let mapleader="\<Space>"
@@ -162,4 +156,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 call plug#end()
+" }}}
+
+" Syntax highlighting {{{
+set t_Co=256
+set background=dark
+syntax on
+colorscheme gruvbox
 " }}}
