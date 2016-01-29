@@ -64,6 +64,9 @@ set spell
 " Jolly good!
 set spelllang=en_gb
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 " Toggle show tabs and trailing spaces (,c) {{{
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
@@ -141,13 +144,30 @@ augroup latex_config
 augroup END
 " }}}
 
+" Haskell {{{
+augroup haskell_ft
+  autocmd!
+
+  " Disable haskellmode-vim
+  let g:haskellmode_completion_ghc=0
+
+  " Set up proper omnifunc
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  
+  " Disable those pesky spellings
+  autocmd FileType haskell setlocal nospell 
+augroup END
+" }}}
+
 " Plugins {{{
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
+Plug 'eagletmt/neco-ghc'
 Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
