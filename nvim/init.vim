@@ -144,6 +144,7 @@ augroup END
 " Plugins {{{
 " path to plugged hardcoded for now
 call plug#begin('~/.config/nvim/plugged')
+Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
