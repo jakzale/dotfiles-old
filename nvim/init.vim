@@ -170,9 +170,9 @@ augroup terminal_config
   " <Leader>t opens a new terminal in vertical split
   nnoremap <leader>t :vsplit term://zsh<CR>
 
-  " Switch to insert mode when entering a terminal buffer 
+  " Switch to insert mode when entering a terminal buffer
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
- 
+
   tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
   tnoremap <silent> <C-w>j <C-\><C-n><C-w>j
   tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
@@ -193,9 +193,9 @@ augroup haskell_config
 
   " Set up proper omnifunc
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-  
+
   " Disable those pesky spellings
-  autocmd FileType haskell setlocal nospell 
+  autocmd FileType haskell setlocal nospell
 augroup END
 " }}}
 
@@ -210,7 +210,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
 Plug 'eagletmt/neco-ghc'
-Plug 'ianks/gruvbox' 
+Plug 'ianks/gruvbox'
 Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
