@@ -65,7 +65,7 @@ set spell
 set spelllang=en_gb
 
 " Set split directions
-set splitbelow
+" set splitbelow
 set splitright
 
 " Use deoplete.
