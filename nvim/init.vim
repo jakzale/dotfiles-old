@@ -64,6 +64,10 @@ set spell
 " Jolly good!
 set spelllang=en_gb
 
+" Set split directions
+set splitbelow
+set splitright
+
 " Toggle show tabs and trailing spaces (,c) {{{
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
@@ -141,13 +145,50 @@ augroup latex_config
 augroup END
 " }}}
 
+" Terminal {{{
+" Settings to handle terminal
+augroup terminal_config
+  autocmd!
+
+  " Terminal cursor setting
+  " hard coded for gruvbox for now
+  au TermOpen * highlight TermCursor ctermfg=9 guifg=#fb4934
+  " disable spelling in terminal
+  au TermOpen * setlocal nospell
+
+  tnoremap <leader><ESC> <C-\><C-n>
+  " Let's try this for now
+  tnoremap jk <C-\><C-n>
+
+  " <Leader>t opens a new terminal
+  nnoremap <leader>t :vsplit term://zsh<CR>
+
+  " Switch to insert mode when entering a terminal buffer 
+  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+ 
+  tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
+  tnoremap <silent> <C-w>j <C-\><C-n><C-w>j
+  tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
+  tnoremap <silent> <C-w>l <C-\><C-n><C-w>l
+
+  " This will not work, cause neovim cannot handle <C-h>
+  " nnoremap <silent> <C-h> :wincmd h<CR>
+  " nnoremap <silent> <C-j> :wincmd j<CR>
+  " nnoremap <silent> <C-k> :wincmd k<CR>
+  " nnoremap <silent> <C-l> :wincmd l<CR>
+
+augroup END
+" }}}
+
 " Plugins {{{
 " path to plugged hardcoded for now
+" Previously used:
+" Plug 'morhetz/gruvbox'
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
-Plug 'ianks/gruvbox' " Plug 'morhetz/gruvbox'
+Plug 'ianks/gruvbox' 
 Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
