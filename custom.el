@@ -126,6 +126,15 @@
 
 (advice-add 'haskell-process-trigger-suggestions
             :around #'haskell-process-trigger-suggestions-ad)
+
+;;;; TODO: This is too platform specific
+;;;; Loading Proof General
+(load-file "/opt/boxen/homebrew/share/emacs/site-lisp/proof-general/generic/proof-site.el")
+
+;; Setting up proof general
+(setq coq-prog-name "/opt/homebrew-cask/Caskroom/coqide/8.4pl5/CoqIDE_8.4pl5.app/Contents/Resources/bin/coqtop")
+(setq proof-splash-enable nil)
+
 ;;;; Custom set variables
 
 (custom-set-variables
