@@ -158,12 +158,16 @@ augroup terminal_config
   au TermOpen * highlight TermCursor ctermfg=9 guifg=#fb4934
   " disable spelling in terminal
   au TermOpen * setlocal nospell
+  " disable deoplete for terminal
+  au TermOpen * let b:deoplete_disable_auto_complete=1
 
   tnoremap <leader><ESC> <C-\><C-n>
   " Let's try this for now
   tnoremap jk <C-\><C-n>
 
-  " <Leader>t opens a new terminal
+  " <Leader>T opens a new terminal in horizontal split
+  nnoremap <leader>T :split term://zsh<CR>
+  " <Leader>t opens a new terminal in vertical split
   nnoremap <leader>t :vsplit term://zsh<CR>
 
   " Switch to insert mode when entering a terminal buffer 
