@@ -11,8 +11,13 @@
 "         https://github.com/reedes/vim-pencil
 
 " NeoVim {{{
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Check if we are using mosh
+if strlen($MOSH) == 0
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
 " }}}
 
 
