@@ -16,6 +16,7 @@
 if strlen($MOSH) == 0
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set t_Co=256
 endif
 
 " }}}
@@ -201,6 +202,12 @@ augroup haskell_config
 
   " Disable those pesky spellings
   autocmd FileType haskell setlocal nospell
+
+  " Haskell specific key bindings
+  nnoremap <leader>hw :GhcModTypeInsert<CR>
+  nnoremap <leader>hs :GhcModSplitFunCase<CR>
+  nnoremap <leader>ht :GhcModType<CR>
+  nnoremap <leader>hd :GhcModTypeClear<CR>
 augroup END
 " }}}
 
@@ -214,6 +221,7 @@ Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
+Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'ianks/gruvbox'
 Plug 'idris-hackers/idris-vim'
