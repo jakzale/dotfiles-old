@@ -189,6 +189,7 @@ augroup terminal_config
   " nnoremap <silent> <C-j> :wincmd j<CR>
   " nnoremap <silent> <C-k> :wincmd k<CR>
   " nnoremap <silent> <C-l> :wincmd l<CR>
+" }}}
 
 " Haskell {{{
 augroup haskell_config
