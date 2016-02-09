@@ -177,7 +177,8 @@ augroup terminal_config
   nnoremap <leader>t :vsplit term://zsh<CR>
 
   " Switch to insert mode when entering a terminal buffer
-  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  " NOTE: Currently breaks with tabline
+  " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
   tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
   tnoremap <silent> <C-w>j <C-\><C-n><C-w>j
