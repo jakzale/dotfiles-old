@@ -142,7 +142,7 @@ augroup END
 augroup latex_config
   autocmd!
 
-  let g:neomake_tex_enabled_makers = ['chktex', 'xelatex']
+  let g:neomake_tex_enabled_makers = ['chktex']
 
   let g:neomake_tex_xelatex_maker = {
         \ 'exe': 'latexmk',
@@ -150,7 +150,50 @@ augroup latex_config
         \ 'cwd': '%:p:h'
         \ }
 
-  " autocmd FileType tex set makeprg=latexmk\ -xelatex\ %
+  " TODO: Add stuff to detect if we are in a git repo
+  " TODO: Either redo it with execute
+  function! s:latex_setup()
+    setlocal makeprg=latexmk\ \-xelatex\ \-interaction=nonstopmode
+
+    " Latex error format
+    " Taken from:
+    " https://github.com/edsono/vimfiles/blob/master/compiler/latexmk.vim
+    setlocal errorformat=
+      \%E!\ LaTeX\ %trror:\ %m,
+      \%E!\ %m,
+      \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
+      \%+W%.%#\ at\ lines\ %l--%*\\d,
+      \%WLaTeX\ %.%#Warning:\ %m,
+      \%Cl.%l\ %m,
+      \%+C\ \ %m.,
+      \%+C%.%#-%.%#,
+      \%+C%.%#[]%.%#,
+      \%+C[]%.%#,
+      \%+C%.%#%[{}\\]%.%#,
+      \%+C<%.%#>%.%#,
+      \%C\ \ %m,
+      \%-GSee\ the\ LaTeX%m,
+      \%-GType\ \ H\ <return>%m,
+      \%-G\ ...%.%#,
+      \%-G%.%#\ (C)\ %.%#,
+      \%-G(see\ the\ transcript%.%#),
+      \%-G\\s%#,
+      \%+O(%*[^()])%r,
+      \%+O%*[^()](%*[^()])%r,
+      \%+P(%f%r,
+      \%+P\ %\\=(%f%r,
+      \%+P%*[^()](%f%r,
+      \%+P[%\\d%[^()]%#(%f%r,
+      \%+Q)%r,
+      \%+Q%*[^()])%r,
+      \%+Q[%\\d%*[^()])%r,
+      \%-G%.%#
+
+    nnoremap <buffer> <leader>p :Neomake!<CR>
+  endfunction
+
+  autocmd FileType tex call s:latex_setup()
+
 augroup END
 " }}}
 
