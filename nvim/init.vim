@@ -190,6 +190,9 @@ augroup latex_config
       \%-G%.%#
 
     nnoremap <buffer> <leader>p :Neomake!<CR>
+
+    " Set up local autocmd that will run neomake
+    autocmd BufWritePost <buffer> Neomake
   endfunction
 
   autocmd FileType tex call s:latex_setup()
