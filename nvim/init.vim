@@ -77,6 +77,16 @@ set splitright
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
+" Custom setting during marking
+function! s:marker_setup()
+  set tabstop=8
+  set softtabstop=8
+  set shiftwidth=8
+  set noexpandtab
+  set list
+endfunction
+
+command Marker call s:marker_setup()
 " Toggle show tabs and trailing spaces (,c) {{{
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
