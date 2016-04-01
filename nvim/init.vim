@@ -163,7 +163,7 @@ augroup latex_config
   " TODO: Add stuff to detect if we are in a git repo
   " TODO: Either redo it with execute
   function! s:latex_setup()
-    setlocal makeprg=latexmk\ \-xelatex\ \-interaction=nonstopmode
+    " setlocal makeprg=latexmk\ \-xelatex\ \-interaction=nonstopmode
 
     " Latex error format
     " Taken from:
