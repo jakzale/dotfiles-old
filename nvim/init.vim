@@ -160,6 +160,20 @@ augroup latex_config
         \ 'cwd': '%:p:h'
         \ }
 
+  " Copied from neomake
+  " Decided to disable warning 1 (commands terminated with space), and warning
+  " 26 (whitespace before punctuation).
+  let g:neomake_tex_chktex_maker = {
+        \ 'exe': 'chktex',
+        \ 'args': ['--nowarn', '1', '--nowarn', '26'],
+        \ 'errorformat':
+            \ '%EError %n in %f line %l: %m,' .
+            \ '%WWarning %n in %f line %l: %m,' .
+            \ '%WMessage %n in %f line %l: %m,' .
+            \ '%Z%p^,' .
+            \ '%-G%.%#'
+        \ }
+
   " TODO: Add stuff to detect if we are in a git repo
   " TODO: Either redo it with execute
   function! s:latex_setup()
