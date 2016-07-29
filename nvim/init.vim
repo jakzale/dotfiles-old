@@ -179,39 +179,7 @@ augroup latex_config
   function! s:latex_setup()
     " setlocal makeprg=latexmk\ \-xelatex\ \-interaction=nonstopmode
 
-    " Latex error format
-    " Taken from:
-    " https://github.com/edsono/vimfiles/blob/master/compiler/latexmk.vim
-    setlocal errorformat=
-      \%E!\ LaTeX\ %trror:\ %m,
-      \%E!\ %m,
-      \%+WLaTeX\ %.%#Warning:\ %.%#line\ %l%.%#,
-      \%+W%.%#\ at\ lines\ %l--%*\\d,
-      \%WLaTeX\ %.%#Warning:\ %m,
-      \%Cl.%l\ %m,
-      \%+C\ \ %m.,
-      \%+C%.%#-%.%#,
-      \%+C%.%#[]%.%#,
-      \%+C[]%.%#,
-      \%+C%.%#%[{}\\]%.%#,
-      \%+C<%.%#>%.%#,
-      \%C\ \ %m,
-      \%-GSee\ the\ LaTeX%m,
-      \%-GType\ \ H\ <return>%m,
-      \%-G\ ...%.%#,
-      \%-G%.%#\ (C)\ %.%#,
-      \%-G(see\ the\ transcript%.%#),
-      \%-G\\s%#,
-      \%+O(%*[^()])%r,
-      \%+O%*[^()](%*[^()])%r,
-      \%+P(%f%r,
-      \%+P\ %\\=(%f%r,
-      \%+P%*[^()](%f%r,
-      \%+P[%\\d%[^()]%#(%f%r,
-      \%+Q)%r,
-      \%+Q%*[^()])%r,
-      \%+Q[%\\d%*[^()])%r,
-      \%-G%.%#
+    setlocal errorformat=%f:%l:\ %m
 
     nnoremap <buffer> <leader>p :Neomake!<CR>
 
