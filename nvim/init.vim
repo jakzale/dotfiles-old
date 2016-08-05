@@ -154,12 +154,6 @@ augroup latex_config
 
   let g:neomake_tex_enabled_makers = ['chktex']
 
-  let g:neomake_tex_xelatex_maker = {
-        \ 'exe': 'latexmk',
-        \ 'args': ['-xelatex', '-interaction=nonstopmode'],
-        \ 'cwd': '%:p:h'
-        \ }
-
   " Copied from neomake
   " Decided to disable warning 1 (commands terminated with space), and warning
   " 26 (whitespace before punctuation).
