@@ -265,6 +265,14 @@ augroup ctrlp_config
 augroup END
 " }}}
 
+" Ack.vim {{{
+augroup ack_config
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+augroup END
+" }}}
+
 " Plugins {{{
 " path to plugged hardcoded for now
 " Previously used:
@@ -284,6 +292,7 @@ Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'tpope/vim-commentary'
