@@ -263,6 +263,7 @@ augroup END
 " Plug 'raichoo/purescript-vim'
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
