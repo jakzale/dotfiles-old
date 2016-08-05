@@ -254,23 +254,23 @@ augroup END
 " Plugins {{{
 " path to plugged hardcoded for now
 " Previously used:
-" Plug 'morhetz/gruvbox'
+" Plug 'Shougo/vimproc.vim', {'do': 'make'}
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'idris-hackers/idris-vim'
+" Plug 'lambdatoast/elm.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'raichoo/purescript-vim'
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'ianks/gruvbox'
-Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'lambdatoast/elm.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'morhetz/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'raichoo/purescript-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
