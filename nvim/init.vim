@@ -2,7 +2,6 @@
 
 " TODO: consider using vim-pandoc plugin
 " TODO: consider writing my own syntax for my own dialect of markdown
-" TODO: play around with the ctrlp plugin
 " TODO: consider adding the py-matcher plugin
 " TODO: consider adding the `ag` plugin
 " TODO: Read about fugitive
@@ -248,6 +247,21 @@ augroup haskell_config
   nnoremap <leader>hs :GhcModSplitFunCase<CR>
   nnoremap <leader>ht :GhcModType<CR>
   nnoremap <leader>hd :GhcModTypeClear<CR>
+augroup END
+" }}}
+
+" CTRLP.VIM {{{
+augroup ctrlp_config
+  autocmd!
+
+  " This one should work, but the other is more general
+  " let g:ctrlp_user_command = {
+  "       \ 'types' : {
+  "         \ 1 : ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+  "         \ },
+  "       \ 'fallback': 'ag %s -l --nocolor'
+  "       \ }
+  let g:ctrlp_user_command = 'cd %s && ag -l --nocolor --hidden --ignore .git' 
 augroup END
 " }}}
 
