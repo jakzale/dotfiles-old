@@ -2,7 +2,6 @@
 
 " TODO: consider using vim-pandoc plugin
 " TODO: consider writing my own syntax for my own dialect of markdown
-" TODO: play around with the ctrlp plugin
 " TODO: consider adding the py-matcher plugin
 " TODO: consider adding the `ag` plugin
 " TODO: Read about fugitive
@@ -154,12 +153,6 @@ augroup latex_config
 
   let g:neomake_tex_enabled_makers = ['chktex']
 
-  let g:neomake_tex_xelatex_maker = {
-        \ 'exe': 'latexmk',
-        \ 'args': ['-xelatex', '-interaction=nonstopmode'],
-        \ 'cwd': '%:p:h'
-        \ }
-
   " Copied from neomake
   " Decided to disable warning 1 (commands terminated with space), and warning
   " 26 (whitespace before punctuation).
@@ -174,14 +167,20 @@ augroup latex_config
             \ '%-G%.%#'
         \ }
 
-  " TODO: Add stuff to detect if we are in a git repo
-  " TODO: Either redo it with execute
+  function! s:cclose_and_neomake()
+    " Close the clist window
+    cclose
+    Neomake!
+  endfunction
+
+  command CCNeomake call s:cclose_and_neomake()
+
   function! s:latex_setup()
-    " setlocal makeprg=latexmk\ \-xelatex\ \-interaction=nonstopmode
 
-    setlocal errorformat=%f:%l:\ %m
+    " Error format is set by LatexBox
+    " setlocal errorformat=%f:%l:\ %m
 
-    nnoremap <buffer> <leader>p :Neomake!<CR>
+    nnoremap <buffer> <leader>p :CCNeomake<CR>
 
     " Set up local autocmd that will run neomake
     autocmd BufWritePost <buffer> Neomake
@@ -251,26 +250,54 @@ augroup haskell_config
 augroup END
 " }}}
 
+" CTRLP.VIM {{{
+augroup ctrlp_config
+  autocmd!
+
+  " This one should work, but the other is more general
+  " let g:ctrlp_user_command = {
+  "       \ 'types' : {
+  "         \ 1 : ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+  "         \ },
+  "       \ 'fallback': 'ag %s -l --nocolor'
+  "       \ }
+  if executable('ag')
+    let g:ctrlp_user_command = 'cd %s && ag -l --nocolor --hidden --ignore .git' 
+  endif
+augroup END
+" }}}
+
+" Ack.vim {{{
+augroup ack_config
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+augroup END
+" }}}
+
 " Plugins {{{
 " path to plugged hardcoded for now
 " Previously used:
-" Plug 'morhetz/gruvbox'
+" Plug 'Shougo/vimproc.vim', {'do': 'make'}
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'idris-hackers/idris-vim'
+" Plug 'lambdatoast/elm.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'raichoo/purescript-vim'
+
 call plug#begin('~/.config/nvim/plugged')
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'ianks/gruvbox'
-Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'lambdatoast/elm.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'mileszs/ack.vim'
+Plug 'morhetz/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'raichoo/purescript-vim'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
