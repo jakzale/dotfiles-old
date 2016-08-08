@@ -177,8 +177,7 @@ augroup latex_config
 
   function! s:latex_setup()
 
-    " Error format is set by LatexBox
-    " setlocal errorformat=%f:%l:\ %m
+    setlocal errorformat=%f:%l:\ %m
 
     nnoremap <buffer> <leader>p :CCNeomake<CR>
 
@@ -285,9 +284,10 @@ augroup END
 " Plug 'lambdatoast/elm.vim'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'raichoo/purescript-vim'
+" This one is a bit too heavyweight
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
