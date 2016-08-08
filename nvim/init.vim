@@ -177,7 +177,8 @@ augroup latex_config
 
   function! s:latex_setup()
 
-    setlocal errorformat=%f:%l:\ %m
+    " Switch to use my own compiler for now
+    compiler latex-simple
 
     nnoremap <buffer> <leader>p :CCNeomake<CR>
 
