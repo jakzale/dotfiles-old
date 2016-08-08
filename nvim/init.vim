@@ -85,7 +85,7 @@ function! s:marker_setup()
   set list
 endfunction
 
-command Marker call s:marker_setup()
+command! Marker call s:marker_setup()
 " Toggle show tabs and trailing spaces (,c) {{{
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
@@ -173,7 +173,7 @@ augroup latex_config
     Neomake!
   endfunction
 
-  command CCNeomake call s:cclose_and_neomake()
+  command! CCNeomake call s:cclose_and_neomake()
 
   function! s:latex_setup()
 
