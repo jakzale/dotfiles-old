@@ -286,6 +286,8 @@ augroup END
 " Plug 'raichoo/purescript-vim'
 " This one is a bit too heavyweight
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
+" This one still defines its own compiler
+" Plug 'lervag/vimtex'
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
@@ -294,7 +296,6 @@ Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'lervag/vimtex'
 Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
