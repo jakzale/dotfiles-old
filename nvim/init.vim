@@ -147,6 +147,7 @@ augroup airline_config
 augroup END
 " }}}
 
+
 " Latex {{{
 augroup latex_config
   autocmd!
@@ -167,6 +168,9 @@ augroup latex_config
             \ '%-G%.%#'
         \ }
 
+  " Open neomake list when stuff is added
+  let g:neomake_open_list = 1
+
   function! s:cclose_and_neomake()
     " Close the clist window
     cclose
@@ -184,6 +188,9 @@ augroup latex_config
 
     " Set up local autocmd that will run neomake
     autocmd BufWritePost <buffer> Neomake
+
+    " Set up tex counter
+    nnoremap <buffer> <leader>lc :NeomakeSh make count<CR>
   endfunction
 
   autocmd FileType tex call s:latex_setup()
