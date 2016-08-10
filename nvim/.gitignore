@@ -2,3 +2,4 @@ plugged
 .netrwhist
 spell
 .init.vim-rplugin~
+autoload/private.vim
