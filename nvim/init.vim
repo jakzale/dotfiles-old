@@ -295,6 +295,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
+Plug 'jaxbot/github-issues.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
@@ -304,6 +305,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+" Load private vim config
+Plug '~/.config/nvim/plugged/private'
 call plug#end()
 " }}}
 
