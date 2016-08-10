@@ -289,13 +289,14 @@ augroup END
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " This one still defines its own compiler
 " Plug 'lervag/vimtex'
+" This one is very cool, but way too slooow!
+"Plug 'jaxbot/github-issues.vim'
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
-Plug 'jaxbot/github-issues.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
