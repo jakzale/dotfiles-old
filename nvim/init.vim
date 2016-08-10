@@ -127,8 +127,8 @@ augroup markdown_config
               \ . " -o " . outfile
   endfunction
 
-  autocmd FileType markdown nnoremap <buffer> <leader>o :call OpenInMarked()<cr>
-  autocmd FileType markdown nnoremap <buffer> <leader>p :call CompilePresentationWithPandoc()<cr>
+  " autocmd FileType markdown nnoremap <buffer> <leader>o :call OpenInMarked()<cr>
+  " autocmd FileType markdown nnoremap <buffer> <leader>p :call CompilePresentationWithPandoc()<cr>
 augroup END
 " }}}
 
