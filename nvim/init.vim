@@ -262,7 +262,7 @@ augroup ctrlp_config
   "       \ 'fallback': 'ag %s -l --nocolor'
   "       \ }
   if executable('ag')
-    let g:ctrlp_user_command = 'cd %s && ag -l --nocolor --hidden --ignore .git' 
+    let g:ctrlp_user_command = 'cd %s && ag -l --nocolor --hidden --ignore .git'
   endif
 augroup END
 " }}}
@@ -298,7 +298,6 @@ Plug 'bling/vim-airline'
 Plug 'jaxbot/github-issues.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'lervag/vimtex'
 Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
@@ -306,6 +305,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 " Load private vim config
 Plug '~/.config/nvim/plugged/private'
 call plug#end()
