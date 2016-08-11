@@ -269,7 +269,7 @@ augroup ctrlp_config
   "       \ 'fallback': 'ag %s -l --nocolor'
   "       \ }
   if executable('ag')
-    let g:ctrlp_user_command = 'cd %s && ag -l --nocolor --hidden --ignore .git'
+    let g:ctrlp_user_command = 'cd %s && ag --nocolor --hidden --ignore .git --nopager -l -g .\*'
   endif
 augroup END
 " }}}
