@@ -56,6 +56,9 @@ set noshowmode
 set ignorecase
 set smartcase
 
+" Allow to switching out of modified buffer
+set hidden
+
 " Save two key strokes on formatting paragraphs
 nnoremap <leader>q gqap
 
