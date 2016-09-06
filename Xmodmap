@@ -1,0 +1,8 @@
+! swap capslock and control
+clear lock
+clear control
+add control = Caps_Lock Control_L Control_R
+keycode 66 = Control_L 
+
+! swap to left-handed mouse
+pointer = 3 2 1
