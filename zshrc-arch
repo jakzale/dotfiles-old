@@ -120,7 +120,7 @@ alias mvim="MOSH=1 nvim"
 # Add open on linux systems
 if ! type open &> /dev/null; then
   function open() {
-    xdg-open "$1" &>/dev/null &
+    nohup xdg-open "$1" &>/dev/null </dev/null &
   }
 fi
 
