@@ -252,11 +252,14 @@ augroup haskell_config
   " Disable those pesky spellings
   autocmd FileType haskell setlocal nospell
 
+  " Set up proper compiler
+  autocmd FileType haskell setlocal makeprg=stack\ build
+
   " Haskell specific key bindings
-  nnoremap <leader>hw :GhcModTypeInsert<CR>
-  nnoremap <leader>hs :GhcModSplitFunCase<CR>
-  nnoremap <leader>ht :GhcModType<CR>
-  nnoremap <leader>hd :GhcModTypeClear<CR>
+  " nnoremap <leader>hw :GhcModTypeInsert<CR>
+  " nnoremap <leader>hs :GhcModSplitFunCase<CR>
+  " nnoremap <leader>ht :GhcModType<CR>
+  " nnoremap <leader>hd :GhcModTypeClear<CR>
 augroup END
 " }}}
 
