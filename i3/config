@@ -29,7 +29,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # Ctrl-Alt-L becomes lock
-bindsym $mod+Backspace exec --no-startup-id lock
+bindsym $mod+BackSpace exec --no-startup-id /usr/local/bin/lock
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
