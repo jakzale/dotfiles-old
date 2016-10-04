@@ -11,7 +11,11 @@
 
 ;; Disable the slash screen
 (setq inhibit-splash-screen t)
-
+;; Set C-x O to get the previous window
+(global-set-key (kbd "C-x O")
+		(lambda ()
+		  (interactive)
+		  (other-window -1)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
