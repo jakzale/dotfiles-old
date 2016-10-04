@@ -8,6 +8,8 @@
 
 (package-initialize)
 
+;; Load zenburn theme
+(load-theme 'zenburn t)
 
 ;; Disable the slash screen
 (setq inhibit-splash-screen t)
@@ -16,6 +18,8 @@
 		(lambda ()
 		  (interactive)
 		  (other-window -1)))
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
