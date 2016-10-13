@@ -1,3 +1,5 @@
+# -*- mode: gitignore; -*-
+
 # Compiled source #
 ###################
 *.com
@@ -34,7 +36,7 @@ Icon?
 Thumbs.db
 *.DS_Store
 
-# Xcode
+# Xcode #
 *.pbxuser
 *.mode1v3
 *.mode2v3
@@ -43,23 +45,27 @@ Thumbs.db
 project.xcworkspace/
 xcuserdata/
 
-#Eclipse
+# Eclipse #
+###########
 .classpath
 .project
 .settings
 
-# Generated files
+# Generated files #
+###################
 /web-app/WEB-INF
 build/
 *.[oa]
 *.pyc
 
-# Other source repository archive directories (protects when importing)
+# Other source repository archive directories (protects when importing) #
+#########################################################################
 .hg
 .svn
 CVS
 
-# automatic backup files
+# automatic backup files #
+##########################
 *~.nib
 *.swp
 *~
@@ -67,3 +73,57 @@ CVS
 Backup[ ]of[ ]*.pages/
 Backup[ ]of[ ]*.key/
 Backup[ ]of[ ]*.numbers/
+
+# Emacs files #
+###############
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode #
+############
+.org-id-locations
+*_archive
+
+# flymake-mode #
+################
+*_flymake.*
+
+# eshell files #
+################
+/eshell/history
+/eshell/lastdir
+
+# elpa packages #
+#################
+/elpa/
+
+# reftex files #
+################
+*.rel
+
+# AUCTeX auto folder #
+######################
+/auto/
+
+# cask packages #
+#################
+.cask/
+dist/
+
+# Flycheck #
+############
+flycheck_*.el
+
+# server auth directory #
+#########################
+/server/
+
+# projectiles files #
+#####################
+.projectile
