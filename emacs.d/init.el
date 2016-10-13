@@ -34,6 +34,7 @@
  '(custom-safe-themes
    (quote
     ("0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" default)))
+ '(org-latex-pdf-process (quote ("latexmk -xelatex %f")))
  '(package-selected-packages
    (quote
     (rainbow-delimiters paredit magit intero org zenburn-theme geiser))))
