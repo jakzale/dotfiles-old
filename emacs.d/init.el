@@ -36,14 +36,33 @@
 ;; My attempt at writing a plugin
 (format-time-string "%y-%m-%d")
 
+(defun university-sanitize-entry (s)
+  "Sanitize by replacing everything non-alnum as string, then
+trimming, then replacing all space by '-'."
+  (downcase (replace-regexp-in-string "[[:space:]]+"
+				      "-"
+				      (string-trim (replace-regexp-in-string "[^[:alnum:]]+"
+									     " "
+									     s)))))
+
+(defun university-find-log-entry (f)
+  "Simple function to find an entry in my university log"
+  (find-file (format "~/src/university/research-log/%s" f)))
+
 (defun university-log-new ()
   "Prompt user to enter a new log entry"
   (interactive)
   ;; Get the local date
   (let ((date (format-time-string "%y-%m-%d")))
     ;; Ask for an entry name for the date
-    (let ((entry (read-string (format "New entry [%s]:" date))))
-      (message "Entry for %s is %s." date entry))))
+    (let ((entry (read-string (format "New entry [%s]:"
+				      date))))
+      (let ((entry-file (format "%s-%s.org"
+				date (university-sanitize-entry entry))))
+	(message "New log entry: %s"
+		 (university-find-log-entry entry-file))))))
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
