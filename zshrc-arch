@@ -133,3 +133,4 @@ export NVM_DIR="$HOME/.nvm"
 # Add support for emacs
 alias ec="emacsclient -c -n"
 alias et="emacsclient -t"
+alias en="emacsclient -t -n"

@@ -13,6 +13,7 @@
 
 ;; Disable the slash screen
 (setq inhibit-splash-screen t)
+
 ;; Set C-x O to get the previous window
 (global-set-key (kbd "C-x O")
 		(lambda ()
@@ -25,6 +26,24 @@
 ;; Add intero to haskell
 (add-hook 'haskell-mode-hook 'intero-mode)
 
+;; Load proof general
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
+
+;; Use IDO mode
+(require 'ido)
+(ido-mode t)
+
+;; My attempt at writing a plugin
+(format-time-string "%y-%m-%d")
+
+(defun university-log-new ()
+  "Prompt user to enter a new log entry"
+  (interactive)
+  ;; Get the local date
+  (let ((date (format-time-string "%y-%m-%d")))
+    ;; Ask for an entry name for the date
+    (let ((entry (read-string (format "New entry [%s]:" date))))
+      (message "Entry for %s is %s." date entry))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
