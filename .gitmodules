@@ -1,3 +1,6 @@
 [submodule "emacs.d/PG"]
 	path = emacs.d/lisp/PG
 	url = git@github.com:ProofGeneral/PG.git
+[submodule "prelude"]
+	path = prelude
+	url = https://github.com/jakzale/prelude
