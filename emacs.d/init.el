@@ -194,11 +194,12 @@ to a unique value for this to work properly."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" default)))
+    ("4e753673a37c71b07e3026be75dc6af3efbac5ce335f3707b7d6a110ecb636a3" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" default)))
  '(org-latex-pdf-process (quote ("latexmk -xelatex %f")))
  '(package-selected-packages
    (quote
-    (js2-mode solarized-theme markdown-mode auctex git-gutter rainbow-delimiters paredit magit intero org zenburn-theme geiser))))
+    (js2-mode solarized-theme markdown-mode auctex git-gutter rainbow-delimiters paredit magit intero org zenburn-theme geiser)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
