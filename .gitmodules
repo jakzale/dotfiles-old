@@ -4,3 +4,6 @@
 [submodule "prelude"]
 	path = prelude
 	url = https://github.com/jakzale/prelude
+[submodule "structured-haskell-mode"]
+	path = structured-haskell-mode
+	url = git@github.com:chrisdone/structured-haskell-mode.git
