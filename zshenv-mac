@@ -1,4 +1,10 @@
 # -*- mode: Shell-script; -*-
 
 # Set up path to LaTeX
-export PATH="$PATH:/usr/local/texlive/2016/bin/x86_64-darwin:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/texlive/2016/bin/x86_64-darwin"
+
+# Set up .local bin
+export PATH="$PATH:$HOME/.local/bin"
+
+# Set up rust
+export PATH="$HOME/.cargo/bin:$PATH"
