@@ -86,3 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source `brew --prefix`/etc/profile.d/z.sh
+
+# Load virtualenv
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+eval $(/usr/libexec/path_helper -s)
