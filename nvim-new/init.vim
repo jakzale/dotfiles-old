@@ -35,6 +35,10 @@ colorscheme badwolf
 nnoremap <space> <nop>
 let mapleader = "\<space>"
 
+" Some visual mode keybindigs
+vnoremap > >gv
+vnoremap < <gv
+
 " Terminal key bindings
 tnoremap jk <C-\><C-n>
 tnoremap <esc> <C-\><C-n>
