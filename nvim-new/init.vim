@@ -50,5 +50,7 @@ let g:python_host_prog = '/Users/jakub/.virtualenvs/neovim2/bin/python'
 
 " Settings for vim-fugitive
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gr :Gread<cr>
 
 
