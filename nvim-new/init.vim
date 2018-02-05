@@ -21,7 +21,8 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     call dein#save_state()
 endif
 
-inoremap jk <esc>
+" Remap jk to <esc> everywhere 
+noremap jk <esc>
 
 filetype plugin indent on
 syntax enable
