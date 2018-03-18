@@ -16,6 +16,8 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     call dein#add('airblade/vim-gitgutter')
     call dein#add('cespare/vim-toml')
     call dein#add('Shougo/denite.nvim')
+    " For some reason this does not work...
+    " call dein#add('fsharp/vim-fsharp')
 
     call dein#end()
     call dein#save_state()
@@ -23,6 +25,12 @@ endif
 
 " Remap jk to <esc> everywhere 
 inoremap jk <esc>
+
+" Remap j and k to gj and gk
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 
 filetype plugin indent on
 syntax enable
