@@ -16,8 +16,11 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     call dein#add('airblade/vim-gitgutter')
     call dein#add('cespare/vim-toml')
     call dein#add('Shougo/denite.nvim')
+    call dein#add('mileszs/ack.vim')
     " For some reason this does not work...
     " call dein#add('fsharp/vim-fsharp')
+    call dein#add('w0rp/ale')
+    call dein#add('lervag/vimtex')
 
     call dein#end()
     call dein#save_state()
@@ -46,6 +49,8 @@ colorscheme badwolf
 " Disable space and use it as mapleader
 nnoremap <space> <nop>
 let mapleader = "\<space>"
+" For now lets set local leader to space as well
+let maplocalleader = "\<space>"
 
 " Some visual mode keybindigs
 vnoremap > >gv
@@ -64,4 +69,8 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
 
+" Settings for Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
