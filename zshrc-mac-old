@@ -109,4 +109,6 @@ autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
 source /usr/local/etc/bash_completion.d/ag.bashcomp.sh
 
+export GOPATH="$HOME/go"
 
+export PATH="$HOME/.fastlane/bin:$PATH"
