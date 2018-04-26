@@ -7,6 +7,16 @@ function Get-ChildItemColor {
 
 Set-Alias -Name "ls" Get-ChildItemColor
 
+function wrap ([int]$colorCode, [string]$text)
+{
+    "`e[$($colorCode)m$($text)`e[0m"
+}
+
+function red ([string]$text)
+{
+    wrap 31 $text
+}
+
 function prompt
 {
     # This will probably not work on windows
@@ -33,6 +43,9 @@ function prompt
     {
         -not [bool](git diff-index --quiet HEAD --)
     } 
+
+
+
 
     
     # Making powershell prompt resembly the robbyrussel theme from oh-my-zsh
@@ -65,8 +78,12 @@ function prompt
             }
         }
 
-        $gitIndicator = "git:($($gitBranchName)) "
+        $gitIndicator = "git:($(red $gitBranchName)) "
     }
 
-    "➜  $($dirName) $($nestingIndicator)$($gitIndicator)$($gitStatusIndicator)";
+    "➜  $($dirName) $($nestingIndicator)$($gitIndicator)$($gitStatusIndicator)`n➜  "
+}
+
+function prompt {
+    "PS> "
 }
