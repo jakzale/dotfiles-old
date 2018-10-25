@@ -61,6 +61,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,3 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # e alias to open in Emacs
 alias e='open -a Emacs.app'
 
+autoload bashcompinit
+bashcompinit
+[[ -f "/usr/local/etc/bash_completion.d/az" ]] && source /usr/local/etc/bash_completion.d/az
+
+# Make an alias for new version of azure functions
+# alias func="$HOME/Developer/Tools/Azure.Functions.Cli/func"
